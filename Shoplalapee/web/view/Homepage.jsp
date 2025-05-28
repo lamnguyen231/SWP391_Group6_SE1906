@@ -6,13 +6,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | E-Shopper</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/price-range.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">    
+    <link href="shoplalapee/CSS/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="shoplalapee/CSS/prettyPhoto.css" rel="stylesheet" type="text/css">
+    <link href="shoplalapee/CSS/price-range.css" rel="stylesheet" type="text/css">
+    <link href="shoplalapee/CSS/animate.css" rel="stylesheet" type="text/css">
+	<link href="CSS/main.css" rel="stylesheet" type="text/css">
+	<link href="CSS/responsive.css" rel="stylesheet" type="text/css">    
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -28,8 +27,8 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i> +84 366661475</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> mysteryme2312@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>
