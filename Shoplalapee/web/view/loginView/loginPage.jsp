@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Login | E-Shopper</title>
-        <link href="/shoplalapee/CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="/shoplalapee/CSS/bootstrap.min.css" rel="stylesheet">
     <link href="/shoplalapee/CSS/font-awesome.min.css" rel="stylesheet">
     <link href="/shoplalapee/CSS/prettyPhoto.css" rel="stylesheet">
     <link href="/shoplalapee/CSS/price-range.css" rel="stylesheet">
