@@ -7,8 +7,9 @@ package DAO;
 import static DAO.dbConfig.con;
 import Model.Blog.Blog;
 import Model.Blog.Interaction_Blog;
-import Model.Product.Category;
 import Model.Blog.Interaction_Blog_Comment;
+import Model.Product.Category;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

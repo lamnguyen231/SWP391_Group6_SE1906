@@ -19,8 +19,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UserDAO extends dbConfig {
-
     
+    public UserDAO() {
+        super();
+    }
+
     public boolean changePassword(String password, String user_id) {
         String sql = "UPDATE [Account] SET password = ? WHERE user_id = ?";
         try {
@@ -28,7 +31,7 @@ public class UserDAO extends dbConfig {
             ps.setString(1, password);
             ps.setString(2, user_id); // Change to setString since user_id is a String
             int rs = ps.executeUpdate();
-           return rs > 0;
+            return rs > 0;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,7 +53,8 @@ public class UserDAO extends dbConfig {
         }
         return false;
     }
-    public boolean checkIsActive(Account account){
+
+    public boolean checkIsActive(Account account) {
         String sql = "SELECT * FROM [Account] WHERE [Account].username = ? AND [Account].[password] = ? and status =1";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -89,8 +93,100 @@ public class UserDAO extends dbConfig {
         return account;
     }
 
-   
-  
+    public User getUser(String username, String password) {
+        String sql = "SELECT * FROM [Users] JOIN [Account] \n"
+                + "		ON [Users].[user_id] = Account.[user_id]\n"
+                + "		WHERE [Account].username = ? AND [Account].password = ? AND status = 1";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                int user_id = rs.getInt(1);
+                String fullname = rs.getNString(2);
+                String phoneNumber = rs.getString(3);
+                String email = rs.getString(4);
+                int gender = rs.getInt(5);
+                String address = rs.getNString(6);
+                Date DOB = rs.getDate(7);
+                String image = rs.getString(8);
+                Date startDate = rs.getDate(13);
+                boolean auth = rs.getBoolean(14);
+                Role role = new Role();
+                role.setRole_id(rs.getInt(9));
+                User u = new User(fullname, email, gender, address, DOB, image);
+                u.setUser_id(user_id);
+                u.setUsername(username);
+                u.setPassword(password);
+                u.setStartDate(startDate);
+                u.setAuth(auth);
+                u.setRole(role);
+                u.setPhoneNumber(phoneNumber);
+                return u;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
+    public void updateUser(User user) {
 
+        String sql = """                    
+                     UPDATE [Users]
+                     
+                     SET fullname = ?, phoneNumber = ?, email = ?, gender = ?, address = ?, DOB = ?, image = ?
+                     
+                     where user_id = ? """;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, user.getFullname());
+            ps.setString(2, user.getPhoneNumber());
+            ps.setString(3, user.getEmail());
+            ps.setInt(4, user.getGender());
+            ps.setString(5, user.getAddress());
+            ps.setDate(6, user.getDOB());
+            ps.setString(7, user.getImage());
+            ps.setInt(8, user.getUser_id());
+            int x = ps.executeUpdate();
+            if (x > 0) {
+                System.out.println("profile user update successfully!");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public User getUserById(int user_id) {
+        User user = new User();
+        String sql = "select * from [Users]\n"
+                + "where user_id = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, user_id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String fullname = rs.getString(2);
+                String phoneNumber = rs.getString(3);
+                String email = rs.getString(4);
+                int gender = rs.getInt(5);
+                String address = rs.getString(6);
+                Date DOB = rs.getDate(7);
+                String image = rs.getString(8);
+                user.setFullname(fullname);
+                user.setPhoneNumber(phoneNumber);
+                user.setEmail(email);
+                user.setGender(gender);
+                user.setAddress(address);
+                user.setDOB(DOB);
+                user.setImage(image);
+                user.setUser_id(user_id);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return user;
+    }
 }
