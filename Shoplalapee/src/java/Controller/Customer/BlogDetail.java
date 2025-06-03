@@ -6,12 +6,9 @@ package Controller.Customer;
 
 import DAO.BlogDAO;
 import DAO.CategoryDAO;
-import DAO.ProductDAO;
-import DAO.TypeDAO;
 import DAO.UserDAO;
 import Model.Blog.Blog;
 import Model.Blog.Interaction_Blog;
-import Model.Product.Category;
 import Model.User.User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,10 +23,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author hbtth
- */
+
 public class BlogDetail extends HttpServlet {
 
     /**

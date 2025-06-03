@@ -21,7 +21,7 @@ public class dbConfig {
     protected static Connection con = null;
     PreparedStatement ps = null; // Nem cau lenh query sang sqlsever
     ResultSet rs = null; // nhan ket qua 
-    private String username = "sa", password = "ductung1706@"; 
+    private String username = "sa", password = "123"; 
     private String uri = "jdbc:sqlserver://localhost:1433;databaseName= Tikilazapee";
     private String url = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
