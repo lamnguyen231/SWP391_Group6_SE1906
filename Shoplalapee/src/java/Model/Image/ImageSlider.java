@@ -4,10 +4,7 @@
  */
 package Model.Image;
 
-/**
- *
- * @author hbtth
- */
+
 public class ImageSlider {
     private int slider_id;
     private int category_id;

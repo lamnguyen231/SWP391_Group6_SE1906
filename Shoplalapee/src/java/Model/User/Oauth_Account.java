@@ -4,10 +4,7 @@
  */
 package Model.User;
 
-/**
- *
- * @author hbtth
- */
+
 public class Oauth_Account extends User{
     private String oauth_user_id;
     private int from;

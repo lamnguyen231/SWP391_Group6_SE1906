@@ -8,10 +8,7 @@ import Model.User.Store;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author hbtth
- */
+
 public class Product {
     private int product_id;
     private int category_id;

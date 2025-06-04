@@ -6,10 +6,7 @@ package Model.ShoppingCart;
 
 import java.util.List;
 
-/**
- *
- * @author hbtth
- */
+
 public class ShoppingCart {
     private int shoppingCart_id;
     private List<ItemCart> listItem;

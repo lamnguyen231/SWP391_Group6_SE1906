@@ -8,10 +8,7 @@ import Model.Product.Color;
 import Model.Product.Product;
 import Model.Product.Type;
 
-/**
- *
- * @author hbtth
- */
+
 public class OrderDetail {
     private int orderDetail_id;
     private int order_id;

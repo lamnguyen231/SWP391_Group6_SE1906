@@ -8,10 +8,7 @@ import Model.User.User;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author hbtth
- */
+
 public class Interaction_Blog {
     private int interaction_blog_id;
     private int user_id;

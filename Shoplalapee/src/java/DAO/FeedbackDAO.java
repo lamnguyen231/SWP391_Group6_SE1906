@@ -16,11 +16,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Asus
- */
-
 public class FeedbackDAO extends dbConfig{
     
     

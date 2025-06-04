@@ -4,10 +4,7 @@
  */
 package Model.Product;
 
-/**
- *
- * @author hbtth
- */
+
 public class Brand {
     private int brand_id;
     private String brand_name;

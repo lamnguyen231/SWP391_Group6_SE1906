@@ -8,17 +8,35 @@
         <servlet-name>listBlog</servlet-name>
         <servlet-class>Controller.Customer.listBlog</servlet-class>
     </servlet>
-<<<<<<< .merge_file_BvKUcm
-=======
     <servlet>
-        <servlet-name>listAllProduct</servlet-name>
-        <servlet-class>Controller.Customer.listAllProduct</servlet-class>
+        <servlet-name>EditBlog</servlet-name>
+        <servlet-class>Controller.Seller.EditBlog</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>productDetail</servlet-name>
-        <servlet-class>Controller.Customer.productDetail</servlet-class>
+        <servlet-name>SearchBlog</servlet-name>
+        <servlet-class>Controller.Seller.SearchBlog</servlet-class>
     </servlet>
->>>>>>> .merge_file_mmU0Wf
+    <servlet>
+        <servlet-name>AddBlog</servlet-name>
+        <servlet-class>Controller.Seller.AddBlog</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteBlog</servlet-name>
+        <servlet-class>Controller.Seller.DeleteBlog</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddBlogFromAdmin</servlet-name>
+        <servlet-class>Controller.Admin.AddBlogFromAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteBlogForAdmin</servlet-name>
+        <servlet-class>Controller.Admin.DeleteBlogForAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditBlogForAdmin</servlet-name>
+        <servlet-class>Controller.Admin.EditBlogForAdmin</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>BlogDetail</servlet-name>
         <url-pattern>/blogdetail</url-pattern>
@@ -27,22 +45,33 @@
         <servlet-name>listBlog</servlet-name>
         <url-pattern>/listblog</url-pattern>
     </servlet-mapping>
-<<<<<<< .merge_file_BvKUcm
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
-</web-app>
-=======
     <servlet-mapping>
-        <servlet-name>listAllProduct</servlet-name>
-        <url-pattern>/allproduct</url-pattern>
+        <servlet-name>EditBlog</servlet-name>
+        <url-pattern>/seller/editblog</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>productDetail</servlet-name>
-        <url-pattern>/product</url-pattern>
+        <servlet-name>SearchBlog</servlet-name>
+        <url-pattern>/seller/searchblog</url-pattern>
     </servlet-mapping>
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
+    <servlet-mapping>
+        <servlet-name>AddBlog</servlet-name>
+        <url-pattern>/seller/addblog</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteBlog</servlet-name>
+        <url-pattern>/seller/deleteblog</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DeleteBlogForAdmin</servlet-name>
+        <url-pattern>/admin/deleteBlog</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditBlogForAdmin</servlet-name>
+        <url-pattern>/admin/editBlog</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddBlogFromAdmin</servlet-name>
+        <url-pattern>/admin/addBlog</url-pattern>
+    </servlet-mapping>
 </web-app>
->>>>>>> .merge_file_mmU0Wf

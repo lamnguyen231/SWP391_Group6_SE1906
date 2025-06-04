@@ -8,10 +8,7 @@ import Model.User.User;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author hbtth
- */
+
 public class Order {
     private int order_id;
     private String order_title;

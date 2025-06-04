@@ -7,10 +7,7 @@ package Model.Product;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author hbtth
- */
+
 public class Color {
     private int color_id;
     private String color_name;

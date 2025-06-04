@@ -4,10 +4,7 @@
  */
 package Model.User;
 import java.sql.Date;
-/**
- *
- * @author hbtth
- */
+
 public class Account {
     protected int user_id;
     protected String username;

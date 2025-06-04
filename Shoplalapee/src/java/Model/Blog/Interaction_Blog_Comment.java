@@ -7,10 +7,6 @@ package Model.Blog;
 import Model.User.User;
 import java.sql.Date;
 
-/**
- *
- * @author hbtth
- */
 public class Interaction_Blog_Comment {
     private int comment_id;
     private int blog_id;

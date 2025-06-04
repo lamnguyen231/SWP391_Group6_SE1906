@@ -8,10 +8,7 @@ import Model.Product.Color;
 import Model.Product.Product;
 import Model.Product.Type;
 
-/**
- *
- * @author hbtth
- */
+
 public class ItemCart {
     private int cartItem_id;
     private int shoppingCart_id;

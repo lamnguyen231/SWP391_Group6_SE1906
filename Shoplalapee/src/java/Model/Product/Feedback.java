@@ -8,10 +8,7 @@ import Model.User.User;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author hbtth
- */
+
 public class Feedback {
     private int feedback_id;
     private int customer_id;

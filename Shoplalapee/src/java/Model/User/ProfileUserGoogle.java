@@ -4,10 +4,7 @@
  */
 package Model.User;
 
-/**
- *
- * @author hbtth
- */
+
 public class ProfileUserGoogle {
 
     private String id;

@@ -4,10 +4,7 @@
  */
 package Model.Order;
 
-/**
- *
- * @author hbtth
- */
+
 public class Payment {
     private int payment_id;
     private long vnp_Amount;

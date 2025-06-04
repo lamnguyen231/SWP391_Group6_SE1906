@@ -4,10 +4,7 @@
  */
 package Model.Image;
 
-/**
- *
- * @author hbtth
- */
+
 public class ImageFeedback {
     private int imageFeedback_id;
     private int feedback_id;

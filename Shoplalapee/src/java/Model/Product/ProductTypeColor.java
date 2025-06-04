@@ -4,10 +4,7 @@
  */
 package Model.Product;
 
-/**
- *
- * @author hbtth
- */
+
 public class ProductTypeColor {
     private int productType_id;
     private int product_id;

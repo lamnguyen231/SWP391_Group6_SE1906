@@ -13,10 +13,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author hbtth
- */
+
 public class TypeDAO extends dbConfig {
 
     public TypeDAO() {

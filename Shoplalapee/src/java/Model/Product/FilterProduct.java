@@ -6,10 +6,7 @@ package Model.Product;
 
 import java.util.List;
 
-/**
- *
- * @author hbtth
- */
+
 public class FilterProduct {
     private int filter_id;
     private int category_id;

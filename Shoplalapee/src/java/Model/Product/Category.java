@@ -9,10 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- *
- * @author hbtth
- */
 public class Category {
     private int category_id;
     private String category_name;

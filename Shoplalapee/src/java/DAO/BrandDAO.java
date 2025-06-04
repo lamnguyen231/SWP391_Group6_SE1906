@@ -12,10 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- *
- * @author Asus
- */
+
 public class BrandDAO extends dbConfig {
     public BrandDAO(){
     super();

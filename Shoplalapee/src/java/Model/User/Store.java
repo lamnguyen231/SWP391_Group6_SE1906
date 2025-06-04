@@ -8,10 +8,7 @@ import Model.Product.Product;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author hbtth
- */
+
 public class Store extends User{
     private String store_name;
     private String store_phone;

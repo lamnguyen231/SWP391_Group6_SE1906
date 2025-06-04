@@ -6,10 +6,7 @@ package Model.Product;
 
 import java.util.List;
 
-/**
- *
- * @author hbtth
- */
+
 public class WishList {
     private int user_id;
     private List<Product> listWishList;

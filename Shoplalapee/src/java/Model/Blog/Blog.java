@@ -10,10 +10,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author hbtth
- */
+
 public class Blog {
    private int blog_id;
    private int user_id;

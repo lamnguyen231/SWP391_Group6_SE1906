@@ -7,10 +7,7 @@ package Model.Product;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author hbtth
- */
+
 public class Type {
     private int type_id;
     private int product_id;
