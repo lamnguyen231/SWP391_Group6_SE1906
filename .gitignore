@@ -1,4 +1,26 @@
-/SWP/build/
-/Shoplalapee/build/
-/Shoplalapee/libs/nbproject/private/
-/Shoplalapee/dist/
+# Ignore build output
+/build/
+/dist/
+/nbbuild/
+/nbdist/
+
+# Ignore compiled class files
+*.class
+
+# Ignore NetBeans specific files
+nbproject/private/
+nbproject/Makefile-*
+
+# Ignore IDE settings
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# OS generated files
+.DS_Store
+Thumbs.db
