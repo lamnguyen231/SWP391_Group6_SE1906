@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DAO;
 
 import java.sql.Connection;
@@ -19,27 +15,26 @@ import java.util.logging.Logger;
 public class dbConfig {
 
     protected static Connection con = null;
-    PreparedStatement ps = null; // Nem cau lenh query sang sqlsever
-    ResultSet rs = null; // nhan ket qua 
-    private String username = "sa", password = "123"; 
-    private String uri = "jdbc:sqlserver://localhost:1433;databaseName= Tikilazapee";
-    private String url = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    PreparedStatement ps = null; // Prepare the SQL query
+    ResultSet rs = null; // Receive the result
+    private String username = "root"; // Change to your MySQL username
+    private String password = "13052004#"; // Change to your MySQL password
+    private String uri = "jdbc:mysql://localhost:3306/Shoplalapee?useSSL=false&serverTimezone=UTC";
+    private String driver = "com.mysql.cj.jdbc.Driver";
 
     public dbConfig() {
         if (con == null) {
             try {
-                Class.forName(url);
+                Class.forName(driver);
                 con = DriverManager.getConnection(uri, username, password);
-                System.out.println("ok");
+                System.out.println("Connected to MySQL successfully!");
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(dbConfig.class.getName()).log(Level.SEVERE, null, ex);
             }
-
         }
     }
 
     public static void main(String[] args) {
         dbConfig db = new dbConfig();
-       
     }
 }
