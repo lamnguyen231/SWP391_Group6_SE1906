@@ -35,7 +35,7 @@
                     <ul>
                         <li><a href="#"><i class="fa-solid fa-bell"></i> Notifications</a></li>
                         <li><a href="ViewWishList"><i class="fa-regular fa-heart"></i> Wish List</a></li>
-                        <li><a href="http://localhost:9999/tikilazapee/listblog"><i class="fa-solid fa-blog"></i> Blog</a></li>
+                        <li><a href="../view/CustomerView/listBlog.jsp"><i class="fa-solid fa-blog"></i> Blog</a></li>
                         <li><a href="http://localhost:9999/tikilazapee/allproduct"><i class="fa-solid fa-list"></i> List products</a></li>
                             <c:if test="${sessionScope.s_u_tikilazapee!= null}">                   
                             <li class="dropdown">
@@ -73,12 +73,12 @@
             <div class="col-md-10 navbar-bottom" >
                 <a class="logo-box" href="home">
                     <img src="image/image_logo/logowebsite.png" alt="">
-                    <h1>Tikilazapee</h1>
+                    <h1>Shoplalapee</h1>
                 </a>
                 <div class="search-box">
                     <form class="search-bar" method="get" action="searchpage?index=1">
                         <input name="index" value="1" type="hidden">
-                        <input type="search" placeholder="Tikilazapee for the best choice" name="txt" value="${txt}" style="color: black">
+                        <input type="search" placeholder="Shoplalapee for the best choice" name="txt" value="${txt}" style="color: black">
                         <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
 
