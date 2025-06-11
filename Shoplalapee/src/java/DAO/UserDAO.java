@@ -23,6 +23,44 @@ public class UserDAO extends dbConfig {
     public UserDAO() {
         super();
     }
+    
+    public void authenticationAccount(String username) {
+        try {
+            String sql = "UPDATE [dbo].[Account]\n"
+                    + "   SET [auth] = 1\n"
+                    + " WHERE [Account].username = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, username);
+            int x = ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    public boolean addUser(User user) {
+        // call procedure from database;
+        String sql = "EXEC insert_into_User_Account ?,?,?,?,?,?,?,?,?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setNString(1, user.getFullname());
+            ps.setString(2, user.getEmail());
+            ps.setInt(3, user.getGender());
+            ps.setString(4, user.getAddress());
+            ps.setDate(5, user.getDOB());
+            ps.setString(6, user.getImage());
+            ps.setInt(7, user.getRole().getRole_id());
+            ps.setString(8, user.getUsername());
+            ps.setString(9, user.getPassword());
+            int x = ps.executeUpdate();
+            return x != 0;
+        } catch (SQLException ex) {
+
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return false;
+    }
 
     public boolean changePassword(String password, String user_id) {
         String sql = "UPDATE [Account] SET password = ? WHERE user_id = ?";
