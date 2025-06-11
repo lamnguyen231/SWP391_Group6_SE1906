@@ -49,7 +49,7 @@
                     <div class="row">
                         <div class="col-sm-5">
                             <div class="logo pull-left">
-                                <a href="index.jsp"><img src="../images/home/logo2.png" style="height: 110px; width: auto;" alt="" /></a> 
+                                <a href="index.jsp"><img src="${pageContext.request.contextPath}/images/home/logo2.png" style="height: 110px; width: auto;" alt="" /></a> 
                             </div>
                             <div class="btn-group pull-right">
                                 <div class="btn-group">
@@ -65,7 +65,7 @@
 
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                        VNDD
+                                        VND
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu">
@@ -79,10 +79,11 @@
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
                                     <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+                                    <li><a href="<c:url value="/listblog"/>"><i class="fa fa-list"></i>Blog</a></li>
                                     <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                     <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                    <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                                    <li><a href="<c:url value="/login"/>"><i class="fa fa-lock"></i> Login</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -155,8 +156,8 @@
                                         <button type="button" class="btn btn-default get">Get it now</button>
                                     </div>
                                     <div class="col-sm-6">
-                                        <img src="../images/home/girl1.jpg" class="girl img-responsive" alt="" />
-                                        <img src="../images/home/pricing.png"  class="pricing" alt="" />
+                                        <img src="${pageContext.request.contextPath}/images/home/girl1.jpg" class="girl img-responsive" alt="" />
+                                        <img src="${pageContext.request.contextPath}/images/home/pricing.png"  class="pricing" alt="" />
                                     </div>
                                 </div>
                                 <div class="item">
@@ -167,8 +168,8 @@
                                         <button type="button" class="btn btn-default get">Get it now</button>
                                     </div>
                                     <div class="col-sm-6">
-                                        <img src="../images/home/girl2.jpg" class="girl img-responsive" alt="" />
-                                        <img src="../images/home/pricing.png"  class="pricing" alt="" />
+                                        <img src="${pageContext.request.contextPath}/images/home/girl2.jpg" class="girl img-responsive" alt="" />
+                                        <img src="${pageContext.request.contextPath}/images/home/pricing.png"  class="pricing" alt="" />
                                     </div>
                                 </div>
 
@@ -180,8 +181,8 @@
                                         <button type="button" class="btn btn-default get">Get it now</button>
                                     </div>
                                     <div class="col-sm-6">
-                                        <img src="../images/home/girl3.jpg" class="girl img-responsive" alt="" />
-                                        <img src="../images/home/pricing.png" class="pricing" alt="" />
+                                        <img src="${pageContext.request.contextPath}/images/home/girl3.jpg" class="girl img-responsive" alt="" />
+                                        <img src="${pageContext.request.contextPath}/images/home/pricing.png" class="pricing" alt="" />
                                     </div>
                                 </div>
 
@@ -332,7 +333,7 @@
                             </div><!--/price-range-->
 
                             <div class="shipping text-center"><!--shipping-->
-                                <img src="../images/home2/shipping.jpg" alt="" />
+                                <img src="${pageContext.request.contextPath}/images/home/shipping.jpg" alt="" />
                             </div><!--/shipping-->
 
                         </div>
@@ -345,7 +346,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="../images/home2/1_Jacket_DirtyCoins_01.jpg" alt="" />
+                                            <img src="${pageContext.request.contextPath}/images/home2/1_Jacket_DirtyCoins_01.jpg" alt="" />
                                             <h2>500.000 VND</h2>
                                             <p>Dirty Coin Jacket</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -370,7 +371,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="../images/home2/1_ShortPants_DirtyCoins_01.jpg" alt="" />
+                                            <img src="${pageContext.request.contextPath}/images/home2/1_ShortPants_DirtyCoins_01.jpg" alt="" />
                                             <h2>350.000 VND</h2>
                                             <p>Dirty Coin Short Pants</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -395,7 +396,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="../images/home2/3_gaming_handle_01.jpg" alt="" />
+                                            <img src="${pageContext.request.contextPath}/images/home2/3_gaming_handle_01.jpg" alt="" />
                                             <h2>175.000 VND</h2>
                                             <p>V7Men Console Gaming Handle</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -420,7 +421,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="../images/home2/1_gaming_handle_01.jpg" alt="" />
+                                            <img src="${pageContext.request.contextPath}/images/home2/1_gaming_handle_01.jpg" alt="" />
                                             <h2>450.000 VND</h2>
                                             <p>PSN Console Gaming Handle</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -432,7 +433,7 @@
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                             </div>
                                         </div>
-                                        <img src="../images/home/new.png" class="new" alt="" />
+                                        <img src="${pageContext.request.contextPath}/images/home/new.png" class="new" alt="" />
                                     </div>
                                     <div class="choose">
                                         <ul class="nav nav-pills nav-justified">
@@ -446,7 +447,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="../images/home2/4_loudspeaker_01.jpg" alt="" />
+                                            <img src="${pageContext.request.contextPath}/images/home2/4_loudspeaker_01.jpg" alt="" />
                                             <h2>1.350.000 VND</h2>
                                             <p>Kardon Loudspeaker</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -458,7 +459,7 @@
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                             </div>
                                         </div>
-                                        <img src="../images/home/sale.png" class="new" alt="" />
+                                        <img src="${pageContext.request.contextPath}/images/home/sale.png" class="new" alt="" />
                                     </div>
                                     <div class="choose">
                                         <ul class="nav nav-pills nav-justified">
@@ -472,7 +473,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="../images/home2/3_loudspeaker_01.jpg" alt="" />
+                                            <img src="${pageContext.request.contextPath}/images/home2/3_loudspeaker_01.jpg" alt="" />
                                             <h2>750.000 VND</h2>
                                             <p>Peterhot Speaker</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -512,7 +513,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home2/1_Jacket_DirtyCoins_01.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home2/1_Jacket_DirtyCoins_01.jpg" alt="" />
                                                     <h2>500.000 VND</h2>
                                                     <p>Dirty Coin Jacket</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -525,7 +526,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home2/1_ShortPants_DirtyCoins_01.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home2/1_ShortPants_DirtyCoins_01.jpg" alt="" />
                                                     <h2>350.000 VND</h2>
                                                     <p>Dirty Coin Short Pants</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -538,7 +539,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home2/2_Jacket_Nike_01.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home2/2_Jacket_Nike_01.jpg" alt="" />
                                                     <h2>1.500.000 VND</h2>
                                                     <p>Nike Jacket</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -551,7 +552,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home2/4_Jacket_Paradox_01.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home2/4_Jacket_Paradox_01.jpg" alt="" />
                                                     <h2>1.400.000 VND</h2>
                                                     <p>Paradox Jacket</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -567,7 +568,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery4.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery4.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -580,7 +581,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery3.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery3.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -593,7 +594,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery2.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery2.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -606,7 +607,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery1.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery1.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -622,7 +623,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery3.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery3.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -635,7 +636,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery4.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery4.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -648,7 +649,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery1.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery1.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -661,7 +662,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery2.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery2.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -677,7 +678,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery1.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery1.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -690,7 +691,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery2.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery2.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -703,7 +704,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery3.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery3.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -716,7 +717,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery4.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery4.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -732,7 +733,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery2.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery2.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -745,7 +746,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery4.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery4.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -758,7 +759,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery3.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery3.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -771,7 +772,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/gallery1.jpg" alt="" />
+                                                    <img src="${pageContext.request.contextPath}/images/home/gallery1.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -794,7 +795,7 @@
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <img src="../images/home/recommend1.jpg" alt="" />
+                                                        <img src="${pageContext.request.contextPath}/images/home/recommend1.jpg" alt="" />
                                                         <h2>$56</h2>
                                                         <p>Easy Polo Black Edition</p>
                                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -807,7 +808,7 @@
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <img src="../images/home/recommend2.jpg" alt="" />
+                                                        <img src="${pageContext.request.contextPath}/images/home/recommend2.jpg" alt="" />
                                                         <h2>$56</h2>
                                                         <p>Easy Polo Black Edition</p>
                                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -820,7 +821,7 @@
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <img src="../images/home/recommend3.jpg" alt="" />
+                                                        <img src="${pageContext.request.contextPath}/images/home/recommend3.jpg" alt="" />
                                                         <h2>$56</h2>
                                                         <p>Easy Polo Black Edition</p>
                                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -835,7 +836,7 @@
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <img src="../images/home/recommend1.jpg" alt="" />
+                                                        <img src="${pageContext.request.contextPath}/images/home/recommend1.jpg" alt="" />
                                                         <h2>$56</h2>
                                                         <p>Easy Polo Black Edition</p>
                                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -848,7 +849,7 @@
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <img src="../images/home/recommend2.jpg" alt="" />
+                                                        <img src="${pageContext.request.contextPath}/images/home/recommend2.jpg" alt="" />
                                                         <h2>$56</h2>
                                                         <p>Easy Polo Black Edition</p>
                                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -861,7 +862,7 @@
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <img src="../images/home/recommend3.jpg" alt="" />
+                                                        <img src="${pageContext.request.contextPath}/images/home/recommend3.jpg" alt="" />
                                                         <h2>$56</h2>
                                                         <p>Easy Polo Black Edition</p>
                                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -901,7 +902,7 @@
                                 <div class="video-gallery text-center">
                                     <a href="#">
                                         <div class="iframe-img">
-                                            <img src="../images/home/iframe1.png" alt="" />
+                                            <img src="${pageContext.request.contextPath}/images/home/iframe1.png" alt="" />
                                         </div>
                                         <div class="overlay-icon">
                                             <i class="fa fa-play-circle-o"></i>
@@ -916,7 +917,7 @@
                                 <div class="video-gallery text-center">
                                     <a href="#">
                                         <div class="iframe-img">
-                                            <img src="../images/home/iframe2.png" alt="" />
+                                            <img src="${pageContext.request.contextPath}/images/home/iframe2.png" alt="" />
                                         </div>
                                         <div class="overlay-icon">
                                             <i class="fa fa-play-circle-o"></i>
@@ -931,7 +932,7 @@
                                 <div class="video-gallery text-center">
                                     <a href="#">
                                         <div class="iframe-img">
-                                            <img src="../images/home/iframe3.png" alt="" />
+                                            <img src="${pageContext.request.contextPath}/images/home/iframe3.png" alt="" />
                                         </div>
                                         <div class="overlay-icon">
                                             <i class="fa fa-play-circle-o"></i>
@@ -946,7 +947,7 @@
                                 <div class="video-gallery text-center">
                                     <a href="#">
                                         <div class="iframe-img">
-                                            <img src="../images/home/iframe4.png" alt="" />
+                                            <img src="${pageContext.request.contextPath}/images/home/iframe4.png" alt="" />
                                         </div>
                                         <div class="overlay-icon">
                                             <i class="fa fa-play-circle-o"></i>
@@ -959,7 +960,7 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="address">
-                                <img src="../images/home/map.png" alt="" />
+                                <img src="${pageContext.request.contextPath}/images/home/map.png" alt="" />
                                 <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
                             </div>
                         </div>
@@ -1043,11 +1044,11 @@
             </div>
 
         </footer><!--/Footer-->
-        <script src="../js/jquery.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/jquery.scrollUp.min.js"></script>
-        <script src="../js/price-range.js"></script>
-        <script src="../js/jquery.prettyPhoto.js"></script>
-        <script src="../js/main.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+        <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery.scrollUp.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/price-range.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery.prettyPhoto.js"></script>
+        <script src="${pageContext.request.contextPath}/js/main.js"></script>
     </body>
 </html>
