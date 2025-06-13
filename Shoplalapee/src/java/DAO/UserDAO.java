@@ -19,11 +19,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UserDAO extends dbConfig {
-    
+
     public UserDAO() {
         super();
     }
-    
+
     public void authenticationAccount(String username) {
         try {
             String sql = "UPDATE [dbo].[Account]\n"
@@ -37,7 +37,7 @@ public class UserDAO extends dbConfig {
         }
 
     }
-    
+
     public boolean addUser(User user) {
         // call procedure from database;
         String sql = "EXEC insert_into_User_Account ?,?,?,?,?,?,?,?,?";
@@ -77,7 +77,7 @@ public class UserDAO extends dbConfig {
     }
 
     public boolean checkLogin(Account account) {
-        String sql = "SELECT * FROM [Account] WHERE [Account].username = ? AND [Account].[password] = ?";
+        String sql = "SELECT * FROM Account WHERE username = ? AND password = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, account.getUsername());
@@ -93,7 +93,7 @@ public class UserDAO extends dbConfig {
     }
 
     public boolean checkIsActive(Account account) {
-        String sql = "SELECT * FROM [Account] WHERE [Account].username = ? AND [Account].[password] = ? and status =1";
+        String sql = "SELECT * FROM Account WHERE username = ? AND password = ? and status = 1";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, account.getUsername());
@@ -132,9 +132,9 @@ public class UserDAO extends dbConfig {
     }
 
     public User getUser(String username, String password) {
-        String sql = "SELECT * FROM [Users] JOIN [Account] \n"
-                + "		ON [Users].[user_id] = Account.[user_id]\n"
-                + "		WHERE [Account].username = ? AND [Account].password = ? AND status = 1";
+        String sql = "SELECT * FROM Users "
+                + "JOIN Account ON Users.user_id = Account.user_id "
+                + "WHERE username = ? AND password = ? AND status = 1";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, username);
@@ -196,7 +196,7 @@ public class UserDAO extends dbConfig {
             e.printStackTrace();
         }
     }
-    
+
     public User getUserById(int user_id) {
         User user = new User();
         String sql = "select * from [Users]\n"
