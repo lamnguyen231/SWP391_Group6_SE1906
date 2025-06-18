@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <filter>
+        <filter-name>filterTailJSP</filter-name>
+        <filter-class>Filter.filterTailJSP</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filterTailJSP</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>filterCheckSessionLogin</filter-name>
+        <filter-class>Filter.filterCheckSessionLogin</filter-class>
+    </filter>
+    <filter>
+        <filter-name>FilterAuthorization</filter-name>
+        <filter-class>Filter.FilterAuthorization</filter-class>
+    </filter>
     <servlet>
         <servlet-name>BlogDetail</servlet-name>
         <servlet-class>Controller.Customer.BlogDetail</servlet-class>
@@ -45,8 +61,23 @@
         <servlet-class>Controller.UserAccess.loginController</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>MyProfileController</servlet-name>
         <servlet-class>Controller.Common.MyProfileController</servlet-class>
+=======
+        <servlet-name>setNewpasswordController</servlet-name>
+        <servlet-class>Controller.UserAccess.setNewpasswordController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>forgotpasswordController</servlet-name>
+        <servlet-class>Controller.UserAccess.forgotpasswordController</servlet-class>
+        <servlet-name>IndexController</servlet-name>
+        <servlet-class>Controller.Common.IndexController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>productDetail</servlet-name>
+        <servlet-class>Controller.Customer.productDetail</servlet-class>
+>>>>>>> 88e10583faa315705b5dfb82af5961071da04860
     </servlet>
     <servlet-mapping>
         <servlet-name>BlogDetail</servlet-name>
@@ -93,8 +124,23 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
         <servlet-name>MyProfileController</servlet-name>
         <url-pattern>/myprofile</url-pattern>
+=======
+        <servlet-name>setNewpasswordController</servlet-name>
+        <url-pattern>/setnewpassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>forgotpasswordController</servlet-name>
+        <url-pattern>/forgotpassword</url-pattern>
+        <servlet-name>IndexController</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>productDetail</servlet-name>
+        <url-pattern>/product</url-pattern>
+>>>>>>> 88e10583faa315705b5dfb82af5961071da04860
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

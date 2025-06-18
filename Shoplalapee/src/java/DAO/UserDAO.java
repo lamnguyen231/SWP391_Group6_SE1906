@@ -19,11 +19,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UserDAO extends dbConfig {
-    
+
     public UserDAO() {
         super();
     }
-    
+
     public void authenticationAccount(String username) {
         try {
             String sql = "UPDATE [dbo].[Account]\n"
@@ -37,7 +37,7 @@ public class UserDAO extends dbConfig {
         }
 
     }
-    
+
     public boolean addUser(User user) {
         // call procedure from database;
         String sql = "EXEC insert_into_User_Account ?,?,?,?,?,?,?,?,?";
@@ -77,7 +77,7 @@ public class UserDAO extends dbConfig {
     }
 
     public boolean checkLogin(Account account) {
-        String sql = "SELECT * FROM [Account] WHERE [Account].username = ? AND [Account].[password] = ?";
+        String sql = "SELECT * FROM Account WHERE username = ? AND password = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, account.getUsername());
@@ -93,7 +93,7 @@ public class UserDAO extends dbConfig {
     }
 
     public boolean checkIsActive(Account account) {
-        String sql = "SELECT * FROM [Account] WHERE [Account].username = ? AND [Account].[password] = ? and status =1";
+        String sql = "SELECT * FROM Account WHERE username = ? AND password = ? and status = 1";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, account.getUsername());
@@ -132,9 +132,9 @@ public class UserDAO extends dbConfig {
     }
 
     public User getUser(String username, String password) {
-        String sql = "SELECT * FROM [Users] JOIN [Account] \n"
-                + "		ON [Users].[user_id] = Account.[user_id]\n"
-                + "		WHERE [Account].username = ? AND [Account].password = ? AND status = 1";
+        String sql = "SELECT * FROM Users "
+                + "JOIN Account ON Users.user_id = Account.user_id "
+                + "WHERE username = ? AND password = ? AND status = 1";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, username);
@@ -196,7 +196,7 @@ public class UserDAO extends dbConfig {
             e.printStackTrace();
         }
     }
-    
+
     public User getUserById(int user_id) {
         User user = new User();
         String sql = "select * from [Users]\n"
@@ -226,5 +226,48 @@ public class UserDAO extends dbConfig {
             ex.printStackTrace();
         }
         return user;
+    }
+        public void updatePassword(String username, String password) {
+        String sql = "UPDATE [dbo].[Account]\n"
+                + "   SET [password] = ?\n"
+                + " WHERE username = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, password);
+            ps.setString(2, username);
+            int x = ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+        public List<User> getAllUserByEmail(String emailFromUser) {
+        List<User> ls = new ArrayList();
+        String sql = "select [Account].user_id, [Account].username,[Users].email, [Users].Image, [Users].fullname  from [Users] join [Account] on [Users].user_id = [Account].user_id\n"
+                + "where [Users].email = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, emailFromUser);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                User user = new User();
+                int user_id = rs.getInt(1);
+                String username = rs.getString(2);
+                String email = rs.getString(3);
+                String image = rs.getString(4);
+                String fullname = rs.getString(5);
+                user.setEmail(email);
+                user.setUser_id(user_id);
+                user.setUsername(username);
+                user.setImage(image);
+                user.setFullname(fullname);
+                ls.add(user);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ls;
     }
 }
