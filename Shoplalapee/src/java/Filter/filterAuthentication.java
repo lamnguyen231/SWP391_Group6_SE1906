@@ -4,6 +4,7 @@
  */
 package Filter;
 
+import DAO.UserDAO;
 import Model.User.User;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -15,13 +16,19 @@ import jakarta.servlet.FilterConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
+import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-
-public class filterCheckSessionLogin implements Filter {
-
+/**
+ *
+ * @author admin
+ */
+@WebFilter(filterName = "filterAuthentication", urlPatterns = {"/index"})
+public class filterAuthentication implements Filter {
+    
     private static final boolean debug = true;
 
     // The filter configuration object we are associated with.  If
@@ -29,59 +36,86 @@ public class filterCheckSessionLogin implements Filter {
     // configured. 
     private FilterConfig filterConfig = null;
 
-    public filterCheckSessionLogin() {
+    public filterAuthentication() {
     }
 
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
-            log("filterCheckSessionLogin:DoBeforeProcessing");
+            log("filterAuthentication:DoBeforeProcessing");
         }
-
-       
     }
 
     private void doAfterProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
-            log("filterCheckSessionLogin:DoAfterProcessing");
+            log("filterAuthentication:DoAfterProcessing");
         }
 
-        
     }
 
-    /**
-     *
-     * @param request The servlet request we are processing
-     * @param response The servlet response we are creating
-     * @param chain The filter chain we are processing
-     *
-     * @exception IOException if an input/output error occurs
-     * @exception ServletException if a servlet error occurs
-     */
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
 
         if (debug) {
-            log("filterCheckSessionLogin:doFilter()");
+            log("filterAuthentication:doFilter()");
         }
 
         doBeforeProcessing(request, response);
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
-        HttpSession session = req.getSession();
-        User user = (User) session.getAttribute("s_u_tikilazapee");
-        if(user == null){
-            resp.sendRedirect("index");
+        UserDAO db = new UserDAO();
+        String username = null;
+        String password = null;
+        Cookie[] cookie = req.getCookies();
+        if (cookie != null) {
+            for (Cookie i : cookie) {
+                if (i.getName().equals("c_s_u_tikilazapee")) {
+                    username = i.getValue();
+                }
+                if (i.getName().equals("c_s_p_tikilazapee")) {
+                    password = i.getValue();
+                    i.setMaxAge(0);
+                    resp.addCookie(i);
+                }
+                if (i.getName().equals("c_s_p_tikilazapee")) {
+                    password = i.getValue();
+                    i.setMaxAge(0);
+                    resp.addCookie(i);
+                }
+            }
+            HttpSession session = req.getSession();
+            User user = db.getUser(username, password);
+            if (user != null) {
+                // check the account is authenticated, isn't it, if isn't asked user to authenticate account
+                if (user.isAuth() == false) {
+                    User userIsNotAuth = new User();
+                    userIsNotAuth.setUsername(username);
+                    userIsNotAuth.setEmail(user.getEmail());
+                    // insert  user into session(username, email)
+                    session.setAttribute("s_u_is_check_authentication", user);
+                    resp.sendRedirect("sendcaptcha");
+                    //
+                } else if (user.isAuth() == true) {
+                    session.setAttribute("s_u_tikilazapee", user);
+                    Cookie c_u_tikilazapee = new Cookie("c_s_u_tikilazapee", username);
+                    Cookie c_p_tikilazapee = new Cookie("c_s_p_tikilazapee", user.getPassword());
+                    c_p_tikilazapee.setMaxAge(60 * 60 * 24 * 3);
+                    c_u_tikilazapee.setMaxAge(60 * 60 * 24 * 3);
+                    resp.addCookie(c_u_tikilazapee);
+                    resp.addCookie(c_p_tikilazapee);
+                    resp.sendRedirect("home");
+                }
+            }
+
         }
+
         Throwable problem = null;
         try {
             chain.doFilter(request, response);
         } catch (Throwable t) {
-            // If an exception is thrown somewhere down the filter chain,
-            // we still want to execute our after processing, and then
-            // rethrow the problem after that.
+
             problem = t;
             t.printStackTrace();
         }
@@ -130,7 +164,7 @@ public class filterCheckSessionLogin implements Filter {
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
             if (debug) {
-                log("filterCheckSessionLogin:Initializing filter");
+                log("filterAuthentication:Initializing filter");
             }
         }
     }
@@ -141,9 +175,9 @@ public class filterCheckSessionLogin implements Filter {
     @Override
     public String toString() {
         if (filterConfig == null) {
-            return ("filterCheckSessionLogin()");
+            return ("filterAuthentication()");
         }
-        StringBuffer sb = new StringBuffer("filterCheckSessionLogin(");
+        StringBuffer sb = new StringBuffer("filterAuthentication(");
         sb.append(filterConfig);
         sb.append(")");
         return (sb.toString());
