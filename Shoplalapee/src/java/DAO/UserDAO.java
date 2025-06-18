@@ -227,4 +227,47 @@ public class UserDAO extends dbConfig {
         }
         return user;
     }
+        public void updatePassword(String username, String password) {
+        String sql = "UPDATE [dbo].[Account]\n"
+                + "   SET [password] = ?\n"
+                + " WHERE username = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, password);
+            ps.setString(2, username);
+            int x = ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+        public List<User> getAllUserByEmail(String emailFromUser) {
+        List<User> ls = new ArrayList();
+        String sql = "select [Account].user_id, [Account].username,[Users].email, [Users].Image, [Users].fullname  from [Users] join [Account] on [Users].user_id = [Account].user_id\n"
+                + "where [Users].email = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, emailFromUser);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                User user = new User();
+                int user_id = rs.getInt(1);
+                String username = rs.getString(2);
+                String email = rs.getString(3);
+                String image = rs.getString(4);
+                String fullname = rs.getString(5);
+                user.setEmail(email);
+                user.setUser_id(user_id);
+                user.setUsername(username);
+                user.setImage(image);
+                user.setFullname(fullname);
+                ls.add(user);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ls;
+    }
 }
