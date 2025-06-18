@@ -61,10 +61,8 @@
         <servlet-class>Controller.UserAccess.loginController</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>MyProfileController</servlet-name>
         <servlet-class>Controller.Common.MyProfileController</servlet-class>
-=======
         <servlet-name>setNewpasswordController</servlet-name>
         <servlet-class>Controller.UserAccess.setNewpasswordController</servlet-class>
     </servlet>
@@ -124,10 +122,8 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>MyProfileController</servlet-name>
         <url-pattern>/myprofile</url-pattern>
-=======
         <servlet-name>setNewpasswordController</servlet-name>
         <url-pattern>/setnewpassword</url-pattern>
     </servlet-mapping>
@@ -140,7 +136,6 @@
     <servlet-mapping>
         <servlet-name>productDetail</servlet-name>
         <url-pattern>/product</url-pattern>
->>>>>>> 88e10583faa315705b5dfb82af5961071da04860
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
