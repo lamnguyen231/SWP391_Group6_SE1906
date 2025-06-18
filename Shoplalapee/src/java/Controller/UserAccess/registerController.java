@@ -21,10 +21,7 @@ import java.util.Date;
 import util.Hashing;
 import util.Validate;
 
-/**
- *
- * @author hbtth
- */
+
 public class registerController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

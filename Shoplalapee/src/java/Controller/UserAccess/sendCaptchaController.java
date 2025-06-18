@@ -19,10 +19,7 @@ import org.json.JSONObject;
 import util.Mail;
 
 
-/**
- *
- * @author hbtth
- */
+
 public class sendCaptchaController extends HttpServlet {
    
 
