@@ -36,7 +36,7 @@
                         <li><a href="#"><i class="fa-solid fa-bell"></i> Notifications</a></li>
                         <li><a href="ViewWishList"><i class="fa-regular fa-heart"></i> Wish List</a></li>
                         <li><a href="../view/CustomerView/listBlog.jsp"><i class="fa-solid fa-blog"></i> Blog</a></li>
-                        <li><a href="http://localhost:9999/tikilazapee/allproduct"><i class="fa-solid fa-list"></i> List products</a></li>
+                        <li><a href="http://localhost:8080/tikilazapee/allproduct"><i class="fa-solid fa-list"></i> List products</a></li>
                             <c:if test="${sessionScope.s_u_tikilazapee!= null}">                   
                             <li class="dropdown">
                                 <div class="dropdown_select">
