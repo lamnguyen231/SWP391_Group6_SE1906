@@ -1,60 +1,31 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 package Controller.Common;
 
 import DAO.BlogDAO;
 import DAO.CategoryDAO;
+
 import DAO.FeedbackDAO;
+import DAO.UserDAO;
+
 import DAO.ProductDAO;
 import DAO.TypeDAO;
-import DAO.UserDAO;
+import Model.Blog.Blog;
+import Model.Product.Category;
+import Model.Product.Feedback;
+import Model.Product.Product;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.List;
 
-/**
- *
- * @author super
- */
 public class HomeController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet HomeController</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet HomeController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -65,6 +36,21 @@ public class HomeController extends HttpServlet {
         UserDAO ud = new UserDAO();
         TypeDAO td = new TypeDAO();
         BlogDAO bd = new BlogDAO();
+        List<Product> listTopSalesProduct = pd.getListTopSaleProduct(1);
+        List<Category> listCata = db.getListCategoryForHomePage();
+        List<Product> listProduct = pd.getListProductForHomePage();
+        List<Feedback> listFeedback = fd.getCommentForHomepage();
+          List<Blog> listBlogLatest = bd.getListLatestBlog();
+         request.setAttribute("listLatestBlog", listBlogLatest);
+        session.removeAttribute("s_u_r_shoplalapee");
+        request.setAttribute("listSalesProduct", listTopSalesProduct);
+        request.setAttribute("listProduct", listProduct);
+        request.setAttribute("listCata", listCata);
+        request.setAttribute("listFeedback", listFeedback);
+        request.setAttribute("ud", ud);
+        request.setAttribute("db", db);
+        request.setAttribute("pd", pd);
+        request.setAttribute("td", td);
         request.getRequestDispatcher("view/Homepage.jsp").forward(request, response);
     }
 
@@ -79,7 +65,7 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
     }
 
     /**

@@ -23,14 +23,14 @@
                         <div class="col-sm-6">
                             <div class="contactinfo">
                                 <ul class="nav nav-pills">
-                                    <c:if test="${sessionScope.s_u_tikilazapee!= null}">
-                                        <c:if test="${sessionScope.s_u_tikilazapee.role.role_id == 1}">
+                                    <c:if test="${sessionScope.s_u_shoplalapee!= null}">
+                                        <c:if test="${sessionScope.s_u_shoplalapee.role.role_id == 1}">
                                             <li><a href="admin/dashboard">Back to Admin Center</a></li>
                                             </c:if>
-                                            <c:if test="${sessionScope.s_u_tikilazapee.role.role_id == 2}">
+                                            <c:if test="${sessionScope.s_u_shoplalapee.role.role_id == 2}">
                                             <li><a href="seller/dashboard">Back to seller Center</a></li>
                                             </c:if>
-                                            <c:if test="${sessionScope.s_u_tikilazapee.role.role_id == 3}">
+                                            <c:if test="${sessionScope.s_u_shoplalapee.role.role_id == 3}">
                                             <li><a href="#">Become to seller Center</a></li>
                                             </c:if>
                                         </c:if>
@@ -94,12 +94,12 @@
                                     <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                     <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                        <c:if test="${sessionScope.s_u_tikilazapee!= null}">                   
+                                        <c:if test="${sessionScope.s_u_shoplalapee!= null}">                   
                                         <li class="dropdown">
                                             <div class="dropdown_select">
                                                 <span class="dropdown_selected" style="color: white;">
-                                                    <a style="font-size: 12px"> <img style="height: 30px;width: 30px;border-radius: 50px;" src="${s_u_tikilazapee.image}"/>
-                                                        ${sessionScope.s_u_tikilazapee.fullname}
+                                                    <a style="font-size: 12px"> <img style="height: 30px;width: 30px;border-radius: 50px;" src="${s_u_shoplalapee.image}"/>
+                                                        ${sessionScope.s_u_shoplalapee.fullname}
                                                     </a>
                                                 </span>
                                                 <ul class="dropdown_list">
@@ -119,7 +119,7 @@
                                             </div>
                                         </li>
                                     </c:if>
-                                    <c:if test="${sessionScope.s_u_tikilazapee== null}">
+                                    <c:if test="${sessionScope.s_u_shoplalapee== null}">
                                         <li id="sign-in"><a href="login"><i class="fa fa-sign-in"></i> Sign in</a></li>
                                         <li><a href="register"><i class="fa fa-sign-out"></i>Sign up</a></li>
                                         </c:if>
@@ -134,36 +134,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-9">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                            </div>
-                            <div class="mainmenu pull-left">
-                                <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="<c:url value="/home"/>" class="active">Home</a></li>
-                                    <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                        <ul role="menu" class="sub-menu">
-                                            <li><a href="shop.html">Products</a></li>
-                                            <li><a href="product-details.html">Product Details</a></li> 
-                                            <li><a href="checkout.html">Checkout</a></li> 
-                                            <li><a href="cart.html">Cart</a></li> 
-                                            <li><a href="<c:url value="/myprofile"/>Login</a></li> 
-                                        </ul>
-                                    </li> 
-                                    <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                        <ul role="menu" class="sub-menu">
-                                            <li><a href="blog.html">Blog List</a></li>
-                                            <li><a href="blog-single.html">Blog Single</a></li>
-                                        </ul>
-                                    </li> 
-                                    <li><a href="404.html">404</a></li>
-                                    <li><a href="contact-us.html">Contact</a></li>
-                                </ul>
-                            </div>
+                            
                         </div>
                         <div class="col-sm-3">
                             <div class="search_box pull-right">

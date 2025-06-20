@@ -6,13 +6,11 @@
 
         <title>Users / Profile </title>
         <meta content="" name="description" />
-        <meta content="" name="keywords" />
-
-        <%@include file="../../Template/navbar2.jsp" %>
+        <meta content="" name="keywords" />  
     </head>
 
     <body>
-        
+        <%@include file="../../Template/navbar2.jsp" %>
         <main id="main" class="main">
             <!-- End Page Title -->
 

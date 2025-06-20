@@ -21,7 +21,7 @@ public class CategoryDAO extends dbConfig {
 
     public List<Category> getListCategoryForHomePage() {
         List<Category> listCata = new ArrayList<>();
-        String sql = "select * from [Categories]";
+        String sql = "select * from categories";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -43,7 +43,7 @@ public class CategoryDAO extends dbConfig {
 
     public Category getCategoryById(int id) {
         Category category = new Category();
-        String sql = "select * from [Categories]\n"
+        String sql = "select * from categories\n"
                 + "where category_id = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -64,7 +64,7 @@ public class CategoryDAO extends dbConfig {
     }
 
     public int getNumberOfCata() {
-        String sql = "select COUNT(*) as numberOfCatalog from [Categories]";
+        String sql = "select COUNT(*) as numberOfCatalog from categories";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -158,7 +158,7 @@ public class CategoryDAO extends dbConfig {
 
     public void insertCata(String nameCata, String nameImage) {
         try {
-            String sql = "INSERT INTO [Categories]([name], [nameImage]) VALUES(?, ?)";
+            String sql = "INSERT INTO categories([name], [nameImage]) VALUES(?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, nameCata);
             ps.setString(2, nameImage);
@@ -204,8 +204,8 @@ public class CategoryDAO extends dbConfig {
     }
 
     public String getCategoriesByID(int category_id) {
-        String sql = "select [Categories].name from [Categories]\n"
-                + "where [Categories].category_id =?";
+        String sql = "select categories.name from categories\n"
+                + "where categories.category_id =?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, category_id);
@@ -221,7 +221,7 @@ public class CategoryDAO extends dbConfig {
 
     public List<Category> getListCategory() {
         List<Category> list = new ArrayList();
-        String sql = "select * from  [Categories]";
+        String sql = "select * from  categories";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -317,7 +317,7 @@ public class CategoryDAO extends dbConfig {
                                         c.name
                                                             FROM
                                                                 SearchProducts s
-                    JOIN [Categories] c ON s.category_id = c.category_id
+                    JOIN categories c ON s.category_id = c.category_id
                                                            WHERE 
                                                                 rn = 1;""";
 

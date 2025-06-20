@@ -88,138 +88,37 @@
         <section>
             <div class="container">
                 <div class="row">
+                    <div>
+                        <h2>Category</h2>
+                        <c:forEach items="${listCata}" var="o">
+                            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                                <a class="text-decoration-none" href="listProduct?category_id=${o.category_id}">
+                                    <div class="cat-item d-flex align-items-center mb-4">
+                                        <div class="overflow-hidden" style="width: 100px; height: 100px;">
+                                            <img class="img-fluid" src="${o.nameImage}" alt="">
+                                        </div>
+                                        <div class="flex-fill pl-3" style="margin-left: 10px;">
+                                            <h6>${o.category_name}</h6>
+                                            <small class="text-body">${pd.totalProductOfCategory(o.category_id)}</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </c:forEach>
+                    </div>
                     <div class="col-sm-3">
-                        <div class="left-sidebar">
-                            <h2>Category</h2>
-                            <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordian" href="#menfashion">
-                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                                Men Fashion
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="menfashion" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <ul>
-                                                <li><a href="#">T-Shirt</a></li>
-                                                <li><a href="#">Pants</a></li>
-                                                <li><a href="#">Polo</a></li>
-                                                <li><a href="#">Jacket</a></li>
-                                                <li><a href="#">Underwear</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordian" href="#womenfashion">
-                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                                Women Fashion
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="womenfashion" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <ul>
-                                                <li><a href="#">T-shirt</a></li>
-                                                <li><a href="#">Dress</a></li>
-                                                <li><a href="#">Blouse</a></li>
-                                                <li><a href="#">Gown</a></li>
-                                                <li><a href="#">Sweater</a></li>
-                                                <li><a href="#">Pants</a></li>
-                                                <li><a href="#">Pajamas</a></li>
-                                                <li><a href="#">Lingerie</a></li>
-                                                <li><a href="#">Underwear</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordian" href="#electronic">
-                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                                Electronic
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="womens" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <ul>
-                                                <li><a href="#">TV</a></li>
-                                                <li><a href="#">Radio</a></li>
-                                                <li><a href="#">Air conditioner</a></li>
-                                                <li><a href="#">PC</a></li>
-                                                <li><a href="#">Laptop</a></li>
-                                                <li><a href="#">Phone</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Cosmetic</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Shoes</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Houseware</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Books</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Toys</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Pets</a></h4>
-                                    </div>
-                                </div>
-                            </div><!--/category-products-->
-
-                            <!--                            <div class="brands_products">brands_products
-                                                            <h2>Brands</h2>
-                                                            <div class="brands-name">
-                                                                <ul class="nav nav-pills nav-stacked">
-                                                                    <li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-                                                                    <li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-                                                                    <li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
-                                                                    <li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
-                                                                    <li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
-                                                                    <li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-                                                                    <li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>/brands_products-->
-
+                        <div class="left-sidebar">                            
                             <div class="price-range"><!--price-range-->
                                 <h2>Price Range</h2>
                                 <div class="well text-center">
-                                    <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-                                    <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+                                    <input type="text" class="span3" value="" data-slider-min="50" data-slider-max="2000" data-slider-step="5" data-slider-value="[700,1300]" id="sl2" ><br />
+                                    <b class="pull-left">50k VND</b> <b class="pull-right">$ 2 Mil VND</b>
                                 </div>
                             </div><!--/price-range-->
 
                             <div class="shipping text-center"><!--shipping-->
                                 <img src="${pageContext.request.contextPath}/images/home/shipping.jpg" alt="" />
                             </div><!--/shipping-->
-
                         </div>
                     </div>
 
@@ -777,8 +676,8 @@
                     <div class="row">
                         <div class="col-sm-2">
                             <div class="companyinfo">
-                                <h2><span>e</span>-shopper</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+                                <h2><span>Shop</span>lalapee</h2>
+                                <p>Best E-commerce site you will ever find</p>
                             </div>
                         </div>
                         <div class="col-sm-7">
@@ -869,7 +768,7 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="single-widget">
-                                <h2>Quock Shop</h2>
+                                <h2>Quick Shop</h2>
                                 <ul class="nav nav-pills nav-stacked">
                                     <li><a href="#">T-Shirt</a></li>
                                     <li><a href="#">Mens</a></li>

@@ -18,10 +18,6 @@ import jakarta.servlet.http.Part;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- *
- * @author Thinh
- */
 @MultipartConfig(fileSizeThreshold = 1024 * 1024, //1mb
         maxFileSize = 1024 * 1024 * 10,//10mb
         maxRequestSize = 1024 * 1024 * 11// 11mb
@@ -125,19 +121,18 @@ public class MyProfileController extends HttpServlet {
         String address = request.getParameter("address");
         String image = "image//image_avatar_user//avataruser(0).jpg";
         String uploadFile = getServletContext().getRealPath("image/image_avatar_user");
-        User user = (User) session.getAttribute("s_u_tikilazapee");
+        User user = (User) session.getAttribute("s_u_shoplalapee");
         Date date = new Date();
         // update user
         user.setFullname(fullname);
         user.setPhoneNumber(phone);
         user.setEmail(email);
         user.setAddress(address);
-      
+
         int gender = Integer.parseInt(request.getParameter("gender"));
         user.setGender(gender);
         user.setDOB(java.sql.Date.valueOf(dobir));
         UserDAO userDAO = new UserDAO();
-        
 
         try {
 
@@ -151,7 +146,7 @@ public class MyProfileController extends HttpServlet {
                 user.setImage(image);
             }
             userDAO.updateUser(user);
-            session.setAttribute("s_u_tikilazapee", user); // Update the session attribute with the modified user object
+            session.setAttribute("s_u_shoplalapee", user);
             request.setAttribute("message", "Profile updated successfully");
             request.getRequestDispatcher("view/CustomerView/Profile.jsp").forward(request, response);
         } catch (Exception e) {
