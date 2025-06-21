@@ -1,16 +1,22 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.util.*" %>
+<%@page import="util.*" %>
 <html lang="en">
-    <head>    
-        <link rel="stylesheet" href="CSS/profileCss.css">
+
+    <head>
+
+
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
         <title>Users / Profile </title>
         <meta content="" name="description" />
         <meta content="" name="keywords" />  
-        
+
         <link href="assets/img/favicon.png" rel="icon" />
         <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
-        
+
         <link href="https://fonts.gstatic.com" rel="preconnect" />
         <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -20,294 +26,125 @@
 
     <body>
         <%@include file="../../Template/navbar2.jsp" %>
-        <main id="main" class="main">
-            <!-- End Page Title -->
-
-            <section class="section profile">
-                <div class="row">
-                    <div class="col-xl-4">
-                        <div class="card">
-                            <div
-                                class="card-body profile-card pt-4 d-flex flex-column align-items-center"
-                                >
-                                <img 
-                                    src="${s_u_tikilazapee.image}"
-                                    alt="Profile"
-                                    class="rounded-circle"
-                                    />
-                                <h2>${s_u_tikilazapee.fullname}</h2>
-                                
-
-                            </div>
+        <main class="container">
+            <section class="row">
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body text-center">
+                            <img src="${s_u_tikilazapee.image}" alt="Profile" class="img-circle">
+                            <h3>${s_u_tikilazapee.fullname}</h3>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col-xl-8">
-                        <div class="card">
-                            <div class="card-body pt-3">
-                                <!-- Bordered Tabs -->
-                                <ul class="nav nav-tabs nav-tabs-bordered">
-                                    <li class="nav-item">
-                                        <button
-                                            class="nav-link active"
-                                            data-bs-toggle="tab"
-                                            data-bs-target="#profile-overview"
-                                            >
-                                            Overview
-                                        </button>
-                                    </li>
+                <div class="col-sm-8">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <ul class="nav nav-tabs">
+                                <li class="active" role="presentation"><a data-toggle="tab" role="tab" aria-controls="id" aria-expanded="false" href="#overview">Overview</a></li>
+                                <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="id" aria-expanded="false" href="#edit">Edit Profile</a></li>
+                                <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="id" aria-expanded="false" href="#password">Change Password</a></li>
+                            </ul>
 
-                                    <li class="nav-item">
-                                        <button
-                                            class="nav-link"
-                                            data-bs-toggle="tab"
-                                            data-bs-target="#profile-edit"
-                                            >
-                                            Edit Profile
-                                        </button>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <button
-                                            class="nav-link"
-                                            data-bs-toggle="tab"
-                                            data-bs-target="#profile-change-password"
-                                            >
-                                            Change Password
-                                        </button>
-                                    </li>
-                                </ul>
-                                <div class="tab-content pt-2">
-                                    <div
-                                        class="tab-pane fade show active profile-overview"
-                                        id="profile-overview"
-                                        >
-                                        <h2 class="card-title">
-                                            Profile Details
-                                        </h2>
-
-                                        <div class="row">
-                                            <div
-                                                class="col-lg-3 col-md-4 label"
-                                                >
-                                                FullName
-                                            </div>
-                                            <div class="col-lg-9 col-md-8">
-                                                ${s_u_tikilazapee.fullname}
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                        <div class="row">
-                                            <div
-                                                class="col-lg-3 col-md-4 label"
-                                                >
-                                                PhoneNumber
-                                            </div>
-                                            <div class="col-lg-9 col-md-8">
-                                                ${s_u_tikilazapee.phoneNumber}
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                        <div class="row">
-                                            <div
-                                                class="col-lg-3 col-md-4 label"
-                                                >
-                                                Email
-                                            </div>
-                                            <div class="col-lg-9 col-md-8">
-                                                ${s_u_tikilazapee.email}
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                        <div class="row">
-                                            <div
-                                                class="col-lg-3 col-md-4 label"
-                                                >
-                                                Gender
-                                            </div>
-                                            <div class="col-lg-9 col-md-8">
-                                                <c:if test="${s_u_tikilazapee.gender eq 1}">
-                                                    Male
-                                                </c:if>
-                                                <c:if test="${s_u_tikilazapee.gender eq 0}">
-                                                    Female
-                                                </c:if>
-                                                <c:if test="${s_u_tikilazapee.gender eq 2}">
-                                                    Other
-                                                </c:if>
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                        <div class="row">
-                                            <div
-                                                class="col-lg-3 col-md-4 label"
-                                                >
-                                                Address
-                                            </div>
-                                            <div class="col-lg-9 col-md-8">
-                                                ${s_u_tikilazapee.address}
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                        <div class="row">
-                                            <div
-                                                class="col-lg-3 col-md-4 label"
-                                                >
-                                                Date of Birth
-                                            </div>
-                                            <div class="col-lg-9 col-md-8">
-
-                                                ${s_u_tikilazapee.DOB}
-                                            </div>
-                                        </div>
-                                        <hr/>
-
-                                    </div>
-
-                                    <div
-                                        class="tab-pane fade profile-edit pt-3"
-                                        id="profile-edit"
-                                        >
-                                        <!-- Profile Edit Form -->
-                                        <form action="myprofile" method="post" enctype="multipart/form-data">
-                                            <div class="row mb-3">
-                                                <label
-                                                    for="profileImage"
-                                                    class="col-md-4 col-lg-3 col-form-label"
-                                                    >Profile Image</label
-                                                >
-                                                <div class="col-md-8 col-lg-9">
-                                                    <div class="image-box">                                                     
-                                                        <img src="${s_u_tikilazapee.image}" alt="Image"/>                                                       
-                                                        <input type="file" accept="image/*" name="image" id="image"/>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-3">
-                                                <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input type="text" class="form-control" id="fullName" name="fullname" value="${s_u_tikilazapee.fullname}">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone Number</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" value="${s_u_tikilazapee.phoneNumber}">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input type="email" class="form-control" id="email" name="email" value="${s_u_tikilazapee.email}">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label for="Gender" class="col-md-4 col-lg-3 col-form-label">Gender</label>
-                                                <div class="col-md-8 col-lg-9">
-
-                                                    <input type="radio" id="Male" name="gender" value="1" ${s_u_tikilazapee.gender == 1 ? 'checked' : ''}> Male
-                                                    <input type="radio" id="Female" name="gender" value="0" ${s_u_tikilazapee.gender == 0 ? 'checked' : ''}> Female
-                                                    <input type="radio" id="Other" name="gender" value="2" ${s_u_tikilazapee.gender == 2 ? 'checked' : ''}> Other
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input type="text" class="form-control" id="address" name="address" value="${s_u_tikilazapee.address}">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label for="dobir" class="col-md-4 col-lg-3 col-form-label">Date of Birth</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input type="date" id="dobir" name="dobir" value="${s_u_tikilazapee.DOB}" class="form-control"/>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-center">
-                                                <button
-                                                    type="submit"
-                                                    class="btn btn-primary"
-                                                    >
-                                                    Save Changes
-                                                </button>
-                                            </div>
-                                        </form>
-                                        <!-- End Profile Edit Form -->
-                                    </div>
-                                    <div
-                                        class="tab-pane fade pt-3"
-                                        id="profile-settings"
-                                        ></div>
-                                    <div
-                                        class="tab-pane fade pt-3"
-                                        id="profile-change-password"
-                                        >
-                                        <!-- Change Password Form -->
-                                        <form action="ChangePassword" method="post">   
-                                            <input type="hidden" name="user_id" value="${s_u_tikilazapee.user_id}" />
-                                            <div class="row mb-3">
-                                                <label
-                                                    for="currentPassword"
-                                                    class="col-md-4 col-lg-3 col-form-label"
-                                                    >Current Password</label
-                                                >
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input
-                                                        name="current_password"
-                                                        type="password"
-                                                        class="form-control"
-                                                        id="current_password"
-                                                        /><i class="fa fa-eye eye-icon" onclick="togglePasswordVisibility('current_password')"></i>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label
-                                                    for="newPassword"
-                                                    class="col-md-4 col-lg-3 col-form-label"
-                                                    >New Password</label
-                                                >
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input
-                                                        name="new_password"
-                                                        type="password"
-                                                        class="form-control"
-                                                        id="new_password"
-                                                        />
-                                                    <i class="fa fa-eye eye-icon" onclick="togglePasswordVisibility('new_password')"></i>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label
-                                                    for="renewPassword"
-                                                    class="col-md-4 col-lg-3 col-form-label"
-                                                    >Re-enter New
-                                                    Password</label
-                                                >
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input
-                                                        name="re_new_password"
-                                                        type="password"
-                                                        class="form-control"
-                                                        id="re_new_password"
-                                                        />
-                                                    <i class="fa fa-eye eye-icon" onclick="togglePasswordVisibility('re_new_password')"></i>
-                                                </div>
-                                            </div>
-                                            <div class="text-center">
-                                                <button
-                                                    type="submit"
-                                                    class="btn btn-primary"
-                                                    >
-                                                    Change Password
-                                                </button>
-                                            </div>
-                                        </form>
-                                        <!-- End Change Password Form -->
-                                    </div>
+                            <div class="tab-content" style="margin-top: 15px">
+                                <div id="overview" class="tab-pane fade in active">
+                                    <h4>Profile Details</h4>
+                                    <dl class="dl-horizontal">
+                                        <dt>FullName</dt><dd>${s_u_tikilazapee.fullname}</dd>
+                                        <dt>PhoneNumber</dt><dd>${s_u_tikilazapee.phoneNumber}</dd>
+                                        <dt>Email</dt><dd>${s_u_tikilazapee.email}</dd>
+                                        <dt>Gender</dt>
+                                        <dd>
+                                            <c:if test="${s_u_tikilazapee.gender eq 1}">Male</c:if>
+                                            <c:if test="${s_u_tikilazapee.gender eq 0}">Female</c:if>
+                                            <c:if test="${s_u_tikilazapee.gender eq 2}">Other</c:if>
+                                            </dd>
+                                            <dt>Address</dt><dd>${s_u_tikilazapee.address}</dd>
+                                        <dt>Date of Birth</dt><dd>${s_u_tikilazapee.DOB}</dd>
+                                    </dl>
                                 </div>
-                                <!-- End Bordered Tabs -->
+
+                                <div id="edit" class="tab-pane fade">
+                                    <form class="form-horizontal" action="myprofile" method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Profile Image</label>
+                                            <div class="col-sm-9">
+                                                <img src="${s_u_tikilazapee.image}" alt="Image" class="img-thumbnail">
+                                                <input type="file" name="image" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Full Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="fullname" value="${s_u_tikilazapee.fullname}" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Phone Number</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="phoneNumber" value="${s_u_tikilazapee.phoneNumber}" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Email</label>
+                                            <div class="col-sm-9">
+                                                <input type="email" name="email" value="${s_u_tikilazapee.email}" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Gender</label>
+                                            <div class="col-sm-9">
+                                                <label class="radio-inline"><input type="radio" name="gender" value="1" ${s_u_tikilazapee.gender == 1 ? 'checked' : ''}> Male</label>
+                                                <label class="radio-inline"><input type="radio" name="gender" value="0" ${s_u_tikilazapee.gender == 0 ? 'checked' : ''}> Female</label>
+                                                <label class="radio-inline"><input type="radio" name="gender" value="2" ${s_u_tikilazapee.gender == 2 ? 'checked' : ''}> Other</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Address</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="address" value="${s_u_tikilazapee.address}" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Date of Birth</label>
+                                            <div class="col-sm-9">
+                                                <input type="date" name="dobir" value="${s_u_tikilazapee.DOB}" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div id="password" class="tab-pane fade">
+                                    <form class="form-horizontal" action="ChangePassword" method="post">
+                                        <input type="hidden" name="user_id" value="${s_u_tikilazapee.user_id}">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Current Password</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" name="current_password" id="current_password" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">New Password</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" name="new_password" id="new_password" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Re-enter New Password</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" name="re_new_password" id="re_new_password" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <button type="submit" class="btn btn-primary">Change Password</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -323,17 +160,22 @@
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var emailField = document.getElementById('email');
-                emailField.readOnly = true;
+                if (emailField)
+                    emailField.readOnly = true;
+
+                const image = document.querySelector('.image-box img');
+                const input = document.querySelector('.image-box input');
+                if (input) {
+                    input.addEventListener('change', () => {
+                        const fileReader = new FileReader();
+                        fileReader.readAsDataURL(input.files[0]);
+                        fileReader.onload = (fileReaderEvent) => {
+                            image.src = fileReaderEvent.target.result;
+                        };
+                    });
+                }
             });
-            const image = document.querySelector('.image-box img');
-            const input = document.querySelector('.image-box input');
-            input.addEventListener('change', () => {
-                const fileReader = new FileReader();
-                fileReader.readAsDataURL(input.files[0]);
-                fileReader.onload = (fileReaderEvent) => {
-                    image.src = fileReaderEvent.target.result;
-                };
-            });
+
             function togglePasswordVisibility(id) {
                 const input = document.getElementById(id);
                 const icon = input.nextElementSibling;
@@ -347,18 +189,14 @@
                     icon.classList.add("fa-eye");
                 }
             }
+            $('.nav-tabs a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+
         </script>
-        <!-- Vendor JS Files -->
-        <script src="JS/apexcharts.min.js"></script>
-        <script src="JS/bootstrap.bundle.min.js"></script>
-        <script src="JS/chart.umd.js"></script>
-        <script src="JS/echarts.min.js"></script>
-        <script src="JS/quill.js"></script>
-        <script src="JS/simple-datatables.js"></script>
-        <script src="JS/tinymce.min.js"></script>
-        <script src="JS/validate.js"></script>
+        <script src="js/jquery.js"></script>
 
-        <!-- Template Main JS File -->
-
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
