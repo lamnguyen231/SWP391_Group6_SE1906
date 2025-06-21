@@ -121,7 +121,7 @@ public class MyProfileController extends HttpServlet {
         String address = request.getParameter("address");
         String image = "image//image_avatar_user//avataruser(0).jpg";
         String uploadFile = getServletContext().getRealPath("image/image_avatar_user");
-        User user = (User) session.getAttribute("s_u_shoplalapee");
+        User user = (User) session.getAttribute("s_u_tikilazapee");
         Date date = new Date();
         // update user
         user.setFullname(fullname);
@@ -146,7 +146,7 @@ public class MyProfileController extends HttpServlet {
                 user.setImage(image);
             }
             userDAO.updateUser(user);
-            session.setAttribute("s_u_shoplalapee", user);
+            session.setAttribute("s_u_tikilazapee", user);
             request.setAttribute("message", "Profile updated successfully");
             request.getRequestDispatcher("view/CustomerView/Profile.jsp").forward(request, response);
         } catch (Exception e) {

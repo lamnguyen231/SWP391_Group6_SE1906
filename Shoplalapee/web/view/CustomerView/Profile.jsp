@@ -1,5 +1,5 @@
 <html lang="en">
-    <head>       
+    <head>    
         <link rel="stylesheet" href="CSS/profileCss.css">
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -7,6 +7,15 @@
         <title>Users / Profile </title>
         <meta content="" name="description" />
         <meta content="" name="keywords" />  
+        
+        <link href="assets/img/favicon.png" rel="icon" />
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet"
+            />
     </head>
 
     <body>
@@ -22,11 +31,12 @@
                                 class="card-body profile-card pt-4 d-flex flex-column align-items-center"
                                 >
                                 <img 
-                                    src="${s_u_shoplalapee.image}"
+                                    src="${s_u_tikilazapee.image}"
                                     alt="Profile"
                                     class="rounded-circle"
                                     />
-                                <h2>${s_u_shoplalapee.fullname}</h2>
+                                <h2>${s_u_tikilazapee.fullname}</h2>
+                                
 
                             </div>
                         </div>
@@ -72,9 +82,9 @@
                                         class="tab-pane fade show active profile-overview"
                                         id="profile-overview"
                                         >
-                                        <h5 class="card-title">
+                                        <h2 class="card-title">
                                             Profile Details
-                                        </h5>
+                                        </h2>
 
                                         <div class="row">
                                             <div
@@ -83,7 +93,7 @@
                                                 FullName
                                             </div>
                                             <div class="col-lg-9 col-md-8">
-                                                ${s_u_shoplalapee.fullname}
+                                                ${s_u_tikilazapee.fullname}
                                             </div>
                                         </div>
                                         <hr/>
@@ -94,7 +104,7 @@
                                                 PhoneNumber
                                             </div>
                                             <div class="col-lg-9 col-md-8">
-                                                ${s_u_shoplalapee.phoneNumber}
+                                                ${s_u_tikilazapee.phoneNumber}
                                             </div>
                                         </div>
                                         <hr/>
@@ -105,7 +115,7 @@
                                                 Email
                                             </div>
                                             <div class="col-lg-9 col-md-8">
-                                                ${s_u_shoplalapee.email}
+                                                ${s_u_tikilazapee.email}
                                             </div>
                                         </div>
                                         <hr/>
@@ -116,13 +126,13 @@
                                                 Gender
                                             </div>
                                             <div class="col-lg-9 col-md-8">
-                                                <c:if test="${s_u_shoplalapee.gender eq 1}">
+                                                <c:if test="${s_u_tikilazapee.gender eq 1}">
                                                     Male
                                                 </c:if>
-                                                <c:if test="${s_u_shoplalapee.gender eq 0}">
+                                                <c:if test="${s_u_tikilazapee.gender eq 0}">
                                                     Female
                                                 </c:if>
-                                                <c:if test="${s_u_shoplalapee.gender eq 2}">
+                                                <c:if test="${s_u_tikilazapee.gender eq 2}">
                                                     Other
                                                 </c:if>
                                             </div>
@@ -135,7 +145,7 @@
                                                 Address
                                             </div>
                                             <div class="col-lg-9 col-md-8">
-                                                ${s_u_shoplalapee.address}
+                                                ${s_u_tikilazapee.address}
                                             </div>
                                         </div>
                                         <hr/>
@@ -147,7 +157,7 @@
                                             </div>
                                             <div class="col-lg-9 col-md-8">
 
-                                                ${s_u_shoplalapee.DOB}
+                                                ${s_u_tikilazapee.DOB}
                                             </div>
                                         </div>
                                         <hr/>
@@ -168,7 +178,7 @@
                                                 >
                                                 <div class="col-md-8 col-lg-9">
                                                     <div class="image-box">                                                     
-                                                        <img src="${s_u_shoplalapee.image}" alt="Image"/>                                                       
+                                                        <img src="${s_u_tikilazapee.image}" alt="Image"/>                                                       
                                                         <input type="file" accept="image/*" name="image" id="image"/>
                                                     </div>
                                                 </div>
@@ -177,40 +187,40 @@
                                             <div class="row mb-3">
                                                 <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                                                 <div class="col-md-8 col-lg-9">
-                                                    <input type="text" class="form-control" id="fullName" name="fullname" value="${s_u_shoplalapee.fullname}">
+                                                    <input type="text" class="form-control" id="fullName" name="fullname" value="${s_u_tikilazapee.fullname}">
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone Number</label>
                                                 <div class="col-md-8 col-lg-9">
-                                                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" value="${s_u_shoplalapee.phoneNumber}">
+                                                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" value="${s_u_tikilazapee.phoneNumber}">
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                                                 <div class="col-md-8 col-lg-9">
-                                                    <input type="email" class="form-control" id="email" name="email" value="${s_u_shoplalapee.email}">
+                                                    <input type="email" class="form-control" id="email" name="email" value="${s_u_tikilazapee.email}">
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <label for="Gender" class="col-md-4 col-lg-3 col-form-label">Gender</label>
                                                 <div class="col-md-8 col-lg-9">
 
-                                                    <input type="radio" id="Male" name="gender" value="1" ${s_u_shoplalapee.gender == 1 ? 'checked' : ''}> Male
-                                                    <input type="radio" id="Female" name="gender" value="0" ${s_u_shoplalapee.gender == 0 ? 'checked' : ''}> Female
-                                                    <input type="radio" id="Other" name="gender" value="2" ${s_u_shoplalapee.gender == 2 ? 'checked' : ''}> Other
+                                                    <input type="radio" id="Male" name="gender" value="1" ${s_u_tikilazapee.gender == 1 ? 'checked' : ''}> Male
+                                                    <input type="radio" id="Female" name="gender" value="0" ${s_u_tikilazapee.gender == 0 ? 'checked' : ''}> Female
+                                                    <input type="radio" id="Other" name="gender" value="2" ${s_u_tikilazapee.gender == 2 ? 'checked' : ''}> Other
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
                                                 <div class="col-md-8 col-lg-9">
-                                                    <input type="text" class="form-control" id="address" name="address" value="${s_u_shoplalapee.address}">
+                                                    <input type="text" class="form-control" id="address" name="address" value="${s_u_tikilazapee.address}">
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <label for="dobir" class="col-md-4 col-lg-3 col-form-label">Date of Birth</label>
                                                 <div class="col-md-8 col-lg-9">
-                                                    <input type="date" id="dobir" name="dobir" value="${s_u_shoplalapee.DOB}" class="form-control"/>
+                                                    <input type="date" id="dobir" name="dobir" value="${s_u_tikilazapee.DOB}" class="form-control"/>
                                                 </div>
                                             </div>
 
@@ -235,7 +245,7 @@
                                         >
                                         <!-- Change Password Form -->
                                         <form action="ChangePassword" method="post">   
-                                            <input type="hidden" name="user_id" value="${s_u_shoplalapee.user_id}" />
+                                            <input type="hidden" name="user_id" value="${s_u_tikilazapee.user_id}" />
                                             <div class="row mb-3">
                                                 <label
                                                     for="currentPassword"
@@ -248,7 +258,7 @@
                                                         type="password"
                                                         class="form-control"
                                                         id="current_password"
-                                                         /><i class="fa fa-eye eye-icon" onclick="togglePasswordVisibility('current_password')"></i>
+                                                        /><i class="fa fa-eye eye-icon" onclick="togglePasswordVisibility('current_password')"></i>
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -281,7 +291,7 @@
                                                         class="form-control"
                                                         id="re_new_password"
                                                         />
-                                                   <i class="fa fa-eye eye-icon" onclick="togglePasswordVisibility('re_new_password')"></i>
+                                                    <i class="fa fa-eye eye-icon" onclick="togglePasswordVisibility('re_new_password')"></i>
                                                 </div>
                                             </div>
                                             <div class="text-center">
@@ -324,19 +334,19 @@
                     image.src = fileReaderEvent.target.result;
                 };
             });
-             function togglePasswordVisibility(id) {
-            const input = document.getElementById(id);
-            const icon = input.nextElementSibling;
-            if (input.type === "password") {
-                input.type = "text";
-                icon.classList.remove("fa-eye");
-                icon.classList.add("fa-eye-slash");
-            } else {
-                input.type = "password";
-                icon.classList.remove("fa-eye-slash");
-                icon.classList.add("fa-eye");
+            function togglePasswordVisibility(id) {
+                const input = document.getElementById(id);
+                const icon = input.nextElementSibling;
+                if (input.type === "password") {
+                    input.type = "text";
+                    icon.classList.remove("fa-eye");
+                    icon.classList.add("fa-eye-slash");
+                } else {
+                    input.type = "password";
+                    icon.classList.remove("fa-eye-slash");
+                    icon.classList.add("fa-eye");
+                }
             }
-        }
         </script>
         <!-- Vendor JS Files -->
         <script src="JS/apexcharts.min.js"></script>

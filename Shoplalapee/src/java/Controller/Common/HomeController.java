@@ -40,9 +40,9 @@ public class HomeController extends HttpServlet {
         List<Category> listCata = db.getListCategoryForHomePage();
         List<Product> listProduct = pd.getListProductForHomePage();
         List<Feedback> listFeedback = fd.getCommentForHomepage();
-          List<Blog> listBlogLatest = bd.getListLatestBlog();
-         request.setAttribute("listLatestBlog", listBlogLatest);
-        session.removeAttribute("s_u_r_shoplalapee");
+        List<Blog> listBlogLatest = bd.getListLatestBlog();
+        request.setAttribute("listLatestBlog", listBlogLatest);
+        session.removeAttribute("s_u_r_tikilazapee");
         request.setAttribute("listSalesProduct", listTopSalesProduct);
         request.setAttribute("listProduct", listProduct);
         request.setAttribute("listCata", listCata);

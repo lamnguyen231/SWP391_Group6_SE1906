@@ -6,6 +6,10 @@
             <meta charset="UTF-8">
             <title>Homepage | Shoplalapee</title>
 
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+            <link rel="shortcut icon" href="image/image_logo/logo.ico" />
+
             <!-- Linking CSS Files -->
             <link rel="stylesheet" href="<c:url value='/CSS/animate.css'/>">
             <link rel="stylesheet" href="<c:url value='/CSS/bootstrap.min.css'/>">
@@ -23,14 +27,14 @@
                         <div class="col-sm-6">
                             <div class="contactinfo">
                                 <ul class="nav nav-pills">
-                                    <c:if test="${sessionScope.s_u_shoplalapee!= null}">
-                                        <c:if test="${sessionScope.s_u_shoplalapee.role.role_id == 1}">
+                                    <c:if test="${sessionScope.s_u_tikilazapee!= null}">
+                                        <c:if test="${sessionScope.s_u_tikilazapee.role.role_id == 1}">
                                             <li><a href="admin/dashboard">Back to Admin Center</a></li>
                                             </c:if>
-                                            <c:if test="${sessionScope.s_u_shoplalapee.role.role_id == 2}">
+                                            <c:if test="${sessionScope.s_u_tikilazapee.role.role_id == 2}">
                                             <li><a href="seller/dashboard">Back to seller Center</a></li>
                                             </c:if>
-                                            <c:if test="${sessionScope.s_u_shoplalapee.role.role_id == 3}">
+                                            <c:if test="${sessionScope.s_u_tikilazapee.role.role_id == 3}">
                                             <li><a href="#">Become to seller Center</a></li>
                                             </c:if>
                                         </c:if>
@@ -94,12 +98,12 @@
                                     <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                     <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                        <c:if test="${sessionScope.s_u_shoplalapee!= null}">                   
+                                        <c:if test="${sessionScope.s_u_tikilazapee!= null}">                   
                                         <li class="dropdown">
                                             <div class="dropdown_select">
                                                 <span class="dropdown_selected" style="color: white;">
-                                                    <a style="font-size: 12px"> <img style="height: 30px;width: 30px;border-radius: 50px;" src="${s_u_shoplalapee.image}"/>
-                                                        ${sessionScope.s_u_shoplalapee.fullname}
+                                                    <a style="font-size: 12px"> <img style="height: 30px;width: 30px;border-radius: 50px;" src="${s_u_tikilazapee.image}"/>
+                                                        ${sessionScope.s_u_tikilazapee.fullname}
                                                     </a>
                                                 </span>
                                                 <ul class="dropdown_list">
@@ -119,7 +123,7 @@
                                             </div>
                                         </li>
                                     </c:if>
-                                    <c:if test="${sessionScope.s_u_shoplalapee== null}">
+                                    <c:if test="${sessionScope.s_u_tikilazapee== null}">
                                         <li id="sign-in"><a href="login"><i class="fa fa-sign-in"></i> Sign in</a></li>
                                         <li><a href="register"><i class="fa fa-sign-out"></i>Sign up</a></li>
                                         </c:if>
@@ -134,7 +138,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-9">
-                            
+
                         </div>
                         <div class="col-sm-3">
                             <div class="search_box pull-right">
