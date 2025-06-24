@@ -18,6 +18,7 @@
             <link rel="stylesheet" href="<c:url value='/CSS/prettyPhoto.css'/>">
             <link rel="stylesheet" href="<c:url value='/CSS/price-range.css'/>">
             <link rel="stylesheet" href="<c:url value='/CSS/responsive.css'/>">
+            <link rel="stylesheet" href="<c:url value='/CSS/style-navbarCSS.css'/>">
         </head><!--/head-->
 
         <body>
@@ -93,36 +94,25 @@
                         <div class="col-sm-7">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="<c:url value="/myprofile"/>"><i class="fa fa-user"></i> Account</a></li>
                                     <li><a href="<c:url value="/listblog"/>"><i class="fa fa-list"></i>Blog</a></li>
                                     <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                     <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                        <c:if test="${sessionScope.s_u_tikilazapee!= null}">                   
-                                        <li class="dropdown">
-                                            <div class="dropdown_select">
-                                                <span class="dropdown_selected" style="color: white;">
-                                                    <a style="font-size: 12px"> <img style="height: 30px;width: 30px;border-radius: 50px;" src="${s_u_tikilazapee.image}"/>
-                                                        ${sessionScope.s_u_tikilazapee.fullname}
-                                                    </a>
-                                                </span>
-                                                <ul class="dropdown_list">
-                                                    <li class="dropdown-item">
-                                                        <a href="myprofile" class="dropdown-text" style="color: black; font-weight: bold;">My profile</a>
-                                                        <i class="fa-regular fa-user"></i>
-                                                    </li>
-                                                    <li class="dropdown-item">
-                                                        <a href="myorder" class="dropdown-text" style="color: black; font-weight: bold;">My Order</a>
-                                                        <i class="fa-solid fa-file-invoice"></i>
-                                                    </li>
-                                                    <li class="dropdown-item">
-                                                        <a href="logout" class="dropdown-text" style="color: black; font-weight: bold;">Logout</a>
-                                                        <i class="fa-solid fa-right-from-bracket"></i>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                        <c:if test="${sessionScope.s_u_tikilazapee != null}">                   
+                                        <li class="dropdown" style="list-style: none;">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #696763; font-size: 14px; font-weight: normal; padding: 0 15px; display: flex; align-items: center; text-decoration: none;">
+                                                <img src="${s_u_tikilazapee.image}" alt="" style="height: 22px; width: 22px; border-radius: 50%; margin-right: 6px;">
+                                                ${sessionScope.s_u_tikilazapee.fullname}
+                                                <span class="caret" style="margin-left: 5px;"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" style="min-width: 160px;">
+                                                <li><a href="myprofile"><i class="fa-regular fa-user"></i> My Profile</a></li>
+                                                <li><a href="myorder"><i class="fa-solid fa-file-invoice"></i> My Order</a></li>
+                                                <li><a href="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                                            </ul>
                                         </li>
                                     </c:if>
+
                                     <c:if test="${sessionScope.s_u_tikilazapee== null}">
                                         <li id="sign-in"><a href="login"><i class="fa fa-sign-in"></i> Sign in</a></li>
                                         <li><a href="register"><i class="fa fa-sign-out"></i>Sign up</a></li>

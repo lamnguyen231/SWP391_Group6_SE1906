@@ -3,22 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package Controller.UserAccess;
+package Controller.Admin;
 
+import DAO.CategoryDAO;
+import DAO.UserDAO;
+import DAO.ProductDAO;
+import jakarta.servlet.ServletContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 /**
  *
- * @author super
+ * @author Asus
  */
-public class LogoutController extends HttpServlet {
+public class AdminController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -29,38 +31,37 @@ public class LogoutController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        Cookie[] cookie = request.getCookies();
-        if(cookie != null){
-            // traversal all cookiee in browser to delete session cookie
-            for (Cookie i : cookie) {
-                if (i.getName().equals("c_s_u_tikilazapee")) {
-                    i.setMaxAge(0);
-                    response.addCookie(i);
-                }
-                if (i.getName().equals("c_s_p_tikilazapee")) {
-                    i.setMaxAge(0);
-                    response.addCookie(i);
-                }
-            }
-            HttpSession session = request.getSession();
-            session.removeAttribute("s_u_tikilazapee");
-            response.sendRedirect("home");
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet AdminController</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet AdminController at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     } 
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
-     * Handles the HTTP <code>GET</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        processRequest(request, response);
-    } 
+            throws ServletException, IOException {
+        ProductDAO productDb = new ProductDAO();
+        CategoryDAO categoryDb = new CategoryDAO();
+        UserDAO userDb = new UserDAO();
+        int numberProduct = productDb.getNumberOfProduct();
+        int numberCata = categoryDb.getNumberOfCata();
+        int numberUser = userDb.getNumberOfUser();
+        request.setAttribute("numberProduct", numberProduct);
+        request.setAttribute("numberCata", numberCata);
+        request.setAttribute("numberUser", numberUser);
+         ServletContext context = request.getServletContext();
+        context.getRequestDispatcher("/view/AdminView/adminView.jsp").forward(request, response);
+    }
 
     /** 
      * Handles the HTTP <code>POST</code> method.
@@ -85,3 +86,4 @@ public class LogoutController extends HttpServlet {
     }// </editor-fold>
 
 }
+

@@ -40,7 +40,7 @@ public class UserDAO extends dbConfig {
 
     public boolean addUser(User user) {
         // call procedure from database;
-        String sql = "EXEC insert_into_User_Account ?,?,?,?,?,?,?,?,?";
+        String sql = "INSERT INTO users (fullname, email, gender, address, DOB, image, role_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setNString(1, user.getFullname());
@@ -55,9 +55,7 @@ public class UserDAO extends dbConfig {
             int x = ps.executeUpdate();
             return x != 0;
         } catch (SQLException ex) {
-
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
-
         }
         return false;
     }
@@ -227,7 +225,8 @@ public class UserDAO extends dbConfig {
         }
         return user;
     }
-        public void updatePassword(String username, String password) {
+
+    public void updatePassword(String username, String password) {
         String sql = "UPDATE [dbo].[Account]\n"
                 + "   SET [password] = ?\n"
                 + " WHERE username = ?";
@@ -243,7 +242,8 @@ public class UserDAO extends dbConfig {
         }
 
     }
-        public List<User> getAllUserByEmail(String emailFromUser) {
+
+    public List<User> getAllUserByEmail(String emailFromUser) {
         List<User> ls = new ArrayList();
         String sql = "select [Account].user_id, [Account].username,[Users].email, [Users].Image, [Users].fullname  from [Users] join [Account] on [Users].user_id = [Account].user_id\n"
                 + "where [Users].email = ?";
@@ -269,5 +269,20 @@ public class UserDAO extends dbConfig {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ls;
+    }
+
+    public int getNumberOfUser() {
+        String sql = "select COUNT(*) as numberOfUser from users";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                int numberOfUser = rs.getInt(1);
+                return numberOfUser;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return 0;
     }
 }

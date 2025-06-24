@@ -537,7 +537,7 @@ public class ProductDAO extends dbConfig {
 
     public int getNumberOfProduct() {
         List<Product> listProduct = new ArrayList();
-        String sql = "select * from [Products]";
+        String sql = "select * from products";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();

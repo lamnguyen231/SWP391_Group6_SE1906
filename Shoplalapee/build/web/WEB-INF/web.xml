@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
     <filter>
+        <filter-name>filterAuthentication</filter-name>
+        <filter-class>Filter.filterAuthentication</filter-class>
+    </filter>
+    <filter>
         <filter-name>filterTailJSP</filter-name>
         <filter-class>Filter.filterTailJSP</filter-class>
     </filter>
@@ -84,6 +88,30 @@
         <servlet-name>registerController</servlet-name>
         <servlet-class>Controller.UserAccess.registerController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminController</servlet-name>
+        <servlet-class>Controller.Admin.AdminController</servlet-class>
+    </servlet>
+    <filter-mapping>
+        <filter-name>filterAuthentication</filter-name>
+        <url-pattern>/index</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>FilterAuthorization</filter-name>
+        <url-pattern>/home</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>FilterAuthorizationSeller</filter-name>
+        <url-pattern>/seller/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>FilterAuthorizationAdmin</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>Controller.UserAccess.LogoutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BlogDetail</servlet-name>
         <url-pattern>/blogdetail</url-pattern>
@@ -151,6 +179,14 @@
     <servlet-mapping>
         <servlet-name>registerController</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminController</servlet-name>
+        <url-pattern>/admin/dashboard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
