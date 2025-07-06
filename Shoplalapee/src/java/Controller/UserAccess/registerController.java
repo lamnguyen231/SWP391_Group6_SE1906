@@ -21,7 +21,6 @@ import java.util.Date;
 import util.Hashing;
 import util.Validate;
 
-
 public class registerController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -94,8 +93,11 @@ public class registerController extends HttpServlet {
         // get list Month from session
         HttpSession session = request.getSession();
         ArrayList<String> listMonth = (ArrayList<String>) session.getAttribute("listMonth");
+//        int month_int = listMonth.indexOf(month) + 1;
+//        java.sql.Date birthDate = java.sql.Date.valueOf(year + "-" + month_int + "-" + day);
         int month_int = listMonth.indexOf(month) + 1;
-        java.sql.Date birthDate = java.sql.Date.valueOf(year + "-" + month_int + "-" + day);
+        String formattedDate = String.format("%s-%02d-%02d", year, month_int, Integer.parseInt(day));
+        java.sql.Date birthDate = java.sql.Date.valueOf(formattedDate);
         String notice = "";
         if (password.equals(confirm_password)) {
             // check validate email, password, and username

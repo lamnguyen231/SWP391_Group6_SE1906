@@ -40,7 +40,7 @@ public class UserDAO extends dbConfig {
 
     public boolean addUser(User user) {
         // call procedure from database;
-        String sql = "INSERT INTO users (fullname, email, gender, address, DOB, image, role_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "CALL insert_into_User_Account(?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setNString(1, user.getFullname());
@@ -61,7 +61,7 @@ public class UserDAO extends dbConfig {
     }
 
     public boolean changePassword(String password, String user_id) {
-        String sql = "UPDATE [Account] SET password = ? WHERE user_id = ?";
+        String sql = "UPDATE Account SET password = ? WHERE user_id = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, password);
