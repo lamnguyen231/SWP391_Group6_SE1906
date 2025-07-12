@@ -33,8 +33,8 @@ public class Mail {
 
 
     public static String send(String emailTo) {
-        final String emailFrom = "thongbaohethong9@gmail.com";
-        final String password = "bsxu ncki whpp exlt";
+        final String emailFrom = "hoangnam4869@gmail.com";
+        final String password = "fowo spuh bxmh qtln";
         String message = randomOTP();
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
