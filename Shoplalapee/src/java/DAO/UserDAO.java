@@ -285,4 +285,148 @@ public class UserDAO extends dbConfig {
         }
         return 0;
     }
+
+    public List<User> getListUserForAdmin() {
+        List<User> listUser = new ArrayList<>();
+        try {
+            String sql = """
+            SELECT u.user_id, a.username, u.fullname, u.phoneNumber, u.email,
+                   r.role_name, u.address, u.image, u.role_id, a.status,
+                   a.startDate, u.dob, u.gender
+            FROM users u
+            JOIN roles r ON u.role_id = r.role_id
+            JOIN account a ON a.user_id = u.user_id
+            WHERE u.role_id != 1
+        """;
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id_User = rs.getInt("user_id");
+                String fullname = rs.getString("fullname");
+                String username = rs.getString("username");
+                Date startDate = rs.getDate("startDate");
+                String email = rs.getString("email");
+                String phone = rs.getString("phoneNumber");
+                int role_id = rs.getInt("role_id");
+                String role_name = rs.getString("role_name");
+                String address = rs.getString("address");
+                String image = rs.getString("image");
+                int status = rs.getInt("status");
+                Date dob = rs.getDate("dob");
+                int gender = rs.getInt("gender");
+
+                Role role = new Role(role_id, role_name);
+                User user = new User();
+                user.setUser_id(id_User);
+                user.setFullname(fullname);
+                user.setPhoneNumber(phone);
+                user.setEmail(email);
+                user.setAddress(address);
+                user.setDOB(dob);
+                user.setImage(image);
+                user.setGender(gender);
+                user.setUsername(username);
+                user.setStatus(status);
+                user.setStartDate(startDate);
+                user.setRole(role);
+                listUser.add(user);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return listUser;
+    }
+
+    public List<User> getListUserForAdminAZ() {
+        List<User> listUser = new ArrayList<>();
+        try {
+            String sql = """
+            SELECT u.user_id, a.username, u.fullname, u.phoneNumber, u.email,
+                   r.role_name, u.address, u.image, u.role_id, a.status,
+                   a.startDate, u.dob, u.gender
+            FROM users u
+            JOIN roles r ON u.role_id = r.role_id
+            JOIN account a ON a.user_id = u.user_id
+            WHERE u.role_id != 1
+            ORDER BY u.fullname ASC
+        """;
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id_User = rs.getInt("user_id");
+                String fullname = rs.getString("fullname");
+                String username = rs.getString("username");
+                Date startDate = rs.getDate("startDate");
+                String email = rs.getString("email");
+                String phone = rs.getString("phoneNumber");
+                int role_id = rs.getInt("role_id");
+                String role_name = rs.getString("role_name");
+                String address = rs.getString("address");
+                String image = rs.getString("image");
+                int status = rs.getInt("status");
+                Date dob = rs.getDate("dob");
+                int gender = rs.getInt("gender");
+
+                Role role = new Role(role_id, role_name);
+                User user = new User(fullname, email, gender, address, dob, image);
+                user.setPhoneNumber(phone);
+                user.setUser_id(id_User);
+                user.setUsername(username);
+                user.setStatus(status);
+                user.setStartDate(startDate);
+                user.setRole(role);
+                listUser.add(user);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return listUser;
+    }
+
+    public List<User> getListUserForAdminZA() {
+        List<User> listUser = new ArrayList<>();
+        try {
+            String sql = """
+            SELECT u.user_id, a.username, u.fullname, u.phoneNumber, u.email,
+                   r.role_name, u.address, u.image, u.role_id, a.status,
+                   a.startDate, u.dob, u.gender
+            FROM users u
+            JOIN roles r ON u.role_id = r.role_id
+            JOIN account a ON a.user_id = u.user_id
+            WHERE u.role_id != 1
+            ORDER BY u.fullname DESC
+        """;
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id_User = rs.getInt("user_id");
+                String fullname = rs.getString("fullname");
+                String username = rs.getString("username");
+                Date startDate = rs.getDate("startDate");
+                String email = rs.getString("email");
+                String phone = rs.getString("phoneNumber");
+                int role_id = rs.getInt("role_id");
+                String role_name = rs.getString("role_name");
+                String address = rs.getString("address");
+                String image = rs.getString("image");
+                int status = rs.getInt("status");
+                Date dob = rs.getDate("dob");
+                int gender = rs.getInt("gender");
+
+                Role role = new Role(role_id, role_name);
+                User user = new User(fullname, email, gender, address, dob, image);
+                user.setPhoneNumber(phone);
+                user.setUser_id(id_User);
+                user.setUsername(username);
+                user.setStatus(status);
+                user.setStartDate(startDate);
+                user.setRole(role);
+                listUser.add(user);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return listUser;
+    }
+
 }

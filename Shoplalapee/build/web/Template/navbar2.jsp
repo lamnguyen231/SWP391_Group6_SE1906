@@ -33,13 +33,9 @@
                                             <li><a href="admin/dashboard">Back to Admin Center</a></li>
                                             </c:if>
                                             <c:if test="${sessionScope.s_u_tikilazapee.role.role_id == 2}">
-                                            <li><a href="seller/dashboard">Back to seller Center</a></li>
-                                            </c:if>
-                                            <c:if test="${sessionScope.s_u_tikilazapee.role.role_id == 3}">
-                                            <li><a href="#">Become to seller Center</a></li>
+                                            <li><a href="seller/dashboard">Back to Seller Center</a></li>
                                             </c:if>
                                         </c:if>
-
                                     <li><a href="#"><i class="fa fa-phone"></i> +84 366661475</a></li>
                                     <li><a href="#"><i class="fa fa-envelope"></i> mysteryme2312@gmail.com</a></li>
                                 </ul>
@@ -97,13 +93,13 @@
                                     <li><a href="<c:url value="/listblog"/>"><i class="fa fa-list"></i>Blog</a></li>
                                     <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                    <li><a href="<c:url value="/cart"/>"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                         <c:if test="${sessionScope.s_u_tikilazapee != null}">                   
                                         <li class="dropdown" style="list-style: none;">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #696763; font-size: 14px; font-weight: normal; padding: 0 15px; display: flex; align-items: center; text-decoration: none;">
-                                                <img src="${s_u_tikilazapee.image}" alt="" style="height: 22px; width: 22px; border-radius: 50%; margin-right: 6px;">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #696763; font-size: 14px; font-weight: normal; display: flex; align-items: center; text-decoration: none;">
+                                                <img src="${s_u_tikilazapee.image}" alt="" style="height: 22px; width: 22px; border-radius: 50%;">
                                                 ${sessionScope.s_u_tikilazapee.fullname}
-                                                <span class="caret" style="margin-left: 5px;"></span>
+                                                <span class="caret"></span>
                                             </a>
                                             <ul class="dropdown-menu" style="min-width: 160px;">
                                                 <li><a href="myprofile"><i class="fa-regular fa-user"></i> My Profile</a></li>

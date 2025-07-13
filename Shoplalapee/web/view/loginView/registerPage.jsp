@@ -70,7 +70,6 @@
                                                 <option value="${i}">${i}</option>
                                             </c:forEach>
                                         </select>
-
                                         <select name="year" class="col-md-3" style="width: 30%">
                                             <c:forEach items="${listYears}" var="i">
                                                 <option value="${i}">${i}</option>

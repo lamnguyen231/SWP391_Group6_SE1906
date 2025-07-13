@@ -254,14 +254,6 @@
                 <div class="menu-icon" onclick="openSidebar()">
                     <span class="material-icons-outlined">menu</span>
                 </div>
-                <div class="header-left">
-                    <span class="material-icons-outlined">search</span>
-                </div>
-                <div class="header-right">
-                    <span class="material-icons-outlined">notifications</span>
-                    <span class="material-icons-outlined">email</span>
-                    <span class="material-icons-outlined">account_circle</span>
-                </div>
             </header>
             <!-- End Header -->
 
@@ -269,8 +261,8 @@
             <aside id="sidebar">
                 <div class="sidebar-title">
                     <div class="sidebar-brand">
-                        <a href="client">
-                        <span class="material-icons-outlined">shopping_cart</span> STORE
+                        <a href="<c:url value="/home"/>">
+                        <span class="material-icons-outlined">shopping_cart</span> Homepage
                         </a>
                     </div>
                     <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
@@ -300,11 +292,6 @@
                     <li class="sidebar-list-item">
                         <a href="BlogManage" target="_blank">
                             <span class="material-icons-outlined">fact_check</span> Blogs Management
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="#" >
-                            <span class="material-icons-outlined">settings</span> Settings
                         </a>
                     </li>
                     <li class="sidebar-list-item">
@@ -375,7 +362,7 @@
             <!-- End Main -->
 
         </div>
-        <c:url var="js" value="/JS/adminView.js"/>
+        <c:url var="js" value="/js/adminView.js"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
         <script src="${js}"></script>
         

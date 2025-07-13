@@ -12,6 +12,10 @@
         <filter-name>filterTailJSP</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>filterCheckSessionLogin</filter-name>
+        <url-pattern>/cart</url-pattern>
+    </filter-mapping>
     <filter>
         <filter-name>filterCheckSessionLogin</filter-name>
         <filter-class>Filter.filterCheckSessionLogin</filter-class>
@@ -112,6 +116,30 @@
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>Controller.UserAccess.LogoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChangePassword</servlet-name>
+        <servlet-class>Controller.Common.ChangePassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cartController</servlet-name>
+        <servlet-class>Controller.Customer.cartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminManagerProduct</servlet-name>
+        <servlet-class>Controller.Admin.AdminManagerProduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminManageCategory</servlet-name>
+        <servlet-class>Controller.Admin.AdminManageCategory</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminManageUser</servlet-name>
+        <servlet-class>Controller.Admin.AdminManageUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminManageFilter</servlet-name>
+        <servlet-class>Controller.Admin.AdminManageFilter</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BlogDetail</servlet-name>
         <url-pattern>/blogdetail</url-pattern>
@@ -187,6 +215,30 @@
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePassword</servlet-name>
+        <url-pattern>/ChangePassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cartController</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminManagerProduct</servlet-name>
+        <url-pattern>/admin/manageproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminManageCategory</servlet-name>
+        <url-pattern>/admin/managecategory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminManageUser</servlet-name>
+        <url-pattern>/admin/manageuser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminManageFilter</servlet-name>
+        <url-pattern>/admin/managefilter</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
