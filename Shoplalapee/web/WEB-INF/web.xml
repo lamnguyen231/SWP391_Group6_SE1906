@@ -4,47 +4,18 @@
         <filter-name>filterAuthentication</filter-name>
         <filter-class>Filter.filterAuthentication</filter-class>
     </filter>
-        <servlet>
-        <servlet-name>SellerDashboard</servlet-name>
-        <servlet-class>Controller.Seller.SellerDashboard</servlet-class>
-    </servlet>
     <filter>
         <filter-name>filterTailJSP</filter-name>
         <filter-class>Filter.filterTailJSP</filter-class>
     </filter>
-        <servlet-mapping>
-        <servlet-name>SellerDashboard</servlet-name>
-        <url-pattern>/seller/dashboard</url-pattern>
-    </servlet-mapping>
     <filter-mapping>
         <filter-name>filterTailJSP</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <servlet>
-        <servlet-name>StoreRegisterController</servlet-name>
-        <servlet-class>Controller.UserAccess.StoreRegisterController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>authenticationController</servlet-name>
-        <url-pattern>/authentication</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>authenticationController</servlet-name>
-        <servlet-class>Controller.UserAccess.authenticationController</servlet-class>
-    </servlet>
-    
     <filter-mapping>
         <filter-name>filterCheckSessionLogin</filter-name>
         <url-pattern>/cart</url-pattern>
     </filter-mapping>
-        <servlet-mapping>
-        <servlet-name>StoreRegisterController</servlet-name>
-        <url-pattern>/register-store</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>sendCaptchaController</servlet-name>
-        <servlet-class>Controller.UserAccess.sendCaptchaController</servlet-class>
-    </servlet>
     <filter>
         <filter-name>filterCheckSessionLogin</filter-name>
         <filter-class>Filter.filterCheckSessionLogin</filter-class>
@@ -133,10 +104,6 @@
         <filter-name>FilterAuthorization</filter-name>
         <url-pattern>/home</url-pattern>
     </filter-mapping>
-    <servlet-mapping>
-        <servlet-name>sendCaptchaController</servlet-name>
-        <url-pattern>/sendcaptcha</url-pattern>
-    </servlet-mapping>
     <filter-mapping>
         <filter-name>FilterAuthorizationSeller</filter-name>
         <url-pattern>/seller/*</url-pattern>

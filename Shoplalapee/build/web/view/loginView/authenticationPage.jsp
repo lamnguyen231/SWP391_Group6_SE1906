@@ -8,9 +8,7 @@
         <title>JSP Page</title>
         <%@include file="../../Template/libheader.jsp" %>
         <c:url value="/CSS/authenticationCSS.css" var="authentication"/>
-        <c:url value="/js/AuthenticationJS.js" var="js"/>
-        <c:url value="/js/jquery-3.7.1.min.js" var="jquery"/>
-        <c:url value="/js/AuthenticationOTP.js" var="OTP1"/>
+
         <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="${authentication}">
 
@@ -48,7 +46,7 @@
                 btn_getCode = document.querySelector('.btn-getcode');
         btn_cancel.addEventListener('click', () => {
             $.ajax({
-                url: "/shoplalapee/sendcaptcha",
+                url: "/tikilazapee/sendcaptcha",
                 type: 'DELETE',
                 success: function (data) {
                     location.href = "login";
@@ -58,7 +56,7 @@
         setTimeout(function () {
             btn_getCode.addEventListener('click', () => {
                 $.ajax({
-                    url: "/shoplalapee/sendcaptcha",
+                    url: "/tikilazapee/sendcaptcha",
                     type: 'POST',
                     success: function () {
 
@@ -86,7 +84,7 @@
                 
                 if(count >=5){
                     $.ajax({
-                url: "/shoplalapee/sendcaptcha",
+                url: "/tikilazapee/sendcaptcha",
                 type: 'DELETE',
                 success: function (data) {
                     location.href = "login";
