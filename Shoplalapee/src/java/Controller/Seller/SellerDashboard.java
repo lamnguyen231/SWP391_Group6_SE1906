@@ -4,12 +4,9 @@
  */
 package Controller.Seller;
 
-import DAO.CategoryDAO;
 import DAO.ProductDAO;
 import DAO.UserDAO;
-import Model.Product.Product;
 import Model.User.User;
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
@@ -17,22 +14,42 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+ *
+ * @author sktnb
+ */
+public class SellerDashboard extends HttpServlet {
 
-public class ManageProduct extends HttpServlet {
-
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        
+          
     }
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpServletRequest req = (HttpServletRequest) request;
+           HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         UserDAO ub = new UserDAO();
         String username = null;
@@ -50,16 +67,10 @@ public class ManageProduct extends HttpServlet {
         }
         HttpSession session = req.getSession();
         User user = ub.getUser(username, password);
-        
-        CategoryDAO CAdb = new CategoryDAO();
-        ProductDAO db = new ProductDAO();
-        List<Product> listProduct = new ArrayList<>();
-        listProduct = db.GetProductofSeller(user.getUser_id());
-        request.setAttribute("db", db);
-        request.setAttribute("CAdb", CAdb);
-        request.setAttribute("listP", listProduct);
-        ServletContext context = request.getServletContext();
-        context.getRequestDispatcher("/view/SellerView/ManageProduct.jsp").forward(request, response);
+        ProductDAO pd = new ProductDAO();
+        int total = pd.totalProductofSeller(user.getUser_id());
+        request.setAttribute("total", total);
+        request.getRequestDispatcher("/view/SellerView/SellerDashboard.jsp").forward(request, response);
     }
 
     /**
@@ -73,7 +84,7 @@ public class ManageProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        processRequest(request, response);
     }
 
     /**

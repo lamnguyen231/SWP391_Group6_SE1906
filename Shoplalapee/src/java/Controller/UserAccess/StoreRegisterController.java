@@ -95,7 +95,7 @@ public class StoreRegisterController extends HttpServlet {
         response.addCookie(c_p_tikilazapee);
         store.setStore_image(store_image);
         UserDAO db = new UserDAO();
-  //      db.addStore(store);
+        db.addStore(store);
         response.sendRedirect("index");
     }
 

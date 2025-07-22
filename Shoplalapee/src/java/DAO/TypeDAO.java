@@ -22,13 +22,12 @@ public class TypeDAO extends dbConfig {
 
     public List<Type> getListTypeByProductID(int product_id) {
         List<Type> list = new ArrayList();
-        String sql = " select distinct [Types].type_id, [Types].type_describes\n"
-                + "from [Types] \n"
-                + "left join [ProductTypeColor]\n"
-                + "on [Types].type_id = ProductTypeColor.type_id\n"
-                + "right join [Products]\n"
-                + "on [ProductTypeColor].product_id = Products.product_id\n"
-                + " where Products.product_id = ?";
+        String sql = "SELECT DISTINCT Types.type_id, Types.type_describes " +
+             "FROM Types " +
+             "LEFT JOIN ProductTypeColor ON Types.type_id = ProductTypeColor.type_id " +
+             "RIGHT JOIN Products ON ProductTypeColor.product_id = Products.product_id " +
+             "WHERE Products.product_id = ?";
+
         ColorDAO db = new ColorDAO();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -49,12 +48,12 @@ public class TypeDAO extends dbConfig {
 
     public List<Type> getListTypeByProductID(String product_id) {
         List<Type> list = new ArrayList();
-        String sql = " select distinct [Types].type_id, [Types].type_describes \n"
-                + " from [Types] join [ProductTypeColor] \n"
-                + " on [Types].type_id = ProductTypeColor.type_id\n"
-                + " join [Products]\n"
-                + " on [ProductTypeColor].product_id = Products.product_id\n"
-                + " where Products.product_id = ?";
+        String sql = "SELECT DISTINCT Types.type_id, Types.type_describes " +
+             "FROM Types " +
+             "JOIN ProductTypeColor ON Types.type_id = ProductTypeColor.type_id " +
+             "JOIN Products ON ProductTypeColor.product_id = Products.product_id " +
+             "WHERE Products.product_id = ?";
+
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, product_id);
@@ -72,9 +71,10 @@ public class TypeDAO extends dbConfig {
 
     public int quantityOfProductById(int id_product) {
         int quantity;
-        String sql = "select sum(pt.quantity) \n"
-                + "from [ProductTypeColor] pt\n"
-                + "where pt.product_id = ?";
+        String sql = "SELECT SUM(pt.quantity) " +
+             "FROM ProductTypeColor pt " +
+             "WHERE pt.product_id = ?";
+
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id_product);
@@ -112,8 +112,9 @@ public class TypeDAO extends dbConfig {
     public List<Type> getListAllType() {
         List<Type> list = new ArrayList();
         String sql = """
-                      select  * from [Types] 
-                     """;
+             SELECT * FROM Types
+             """;
+
         ColorDAO db = new ColorDAO();
         try {
             PreparedStatement ps = con.prepareStatement(sql);

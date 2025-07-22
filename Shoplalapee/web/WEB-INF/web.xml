@@ -81,9 +81,33 @@
         <servlet-class>Controller.UserAccess.forgotpasswordController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>SellerDashboard</servlet-name>
+        <servlet-class>Controller.Seller.SellerDashboard</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StoreRegisterController</servlet-name>
+        <servlet-class>Controller.UserAccess.StoreRegisterController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>IndexController</servlet-name>
         <servlet-class>Controller.Common.IndexController</servlet-class>
     </servlet>
+        <servlet>
+        <servlet-name>ManageProduct</servlet-name>
+        <servlet-class>Controller.Seller.ManageProduct</servlet-class>
+    </servlet>
+        <servlet-mapping>
+        <servlet-name>ManageProduct</servlet-name>
+        <url-pattern>/seller/manageproduct</url-pattern>
+    </servlet-mapping>
+    <filter-mapping>
+        <filter-name>FilterAuthorizationSeller</filter-name>
+        <url-pattern>/seller/*</url-pattern>
+    </filter-mapping>
+    <servlet-mapping>
+        <servlet-name>SellerDashboard</servlet-name>
+        <url-pattern>/seller/dashboard</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>authenticationController</servlet-name>
         <url-pattern>/authentication</url-pattern>
@@ -95,6 +119,10 @@
         <servlet-mapping>
         <servlet-name>sendCaptchaController</servlet-name>
         <url-pattern>/sendcaptcha</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StoreRegisterController</servlet-name>
+        <url-pattern>/register-store</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>authenticationController</servlet-name>
@@ -137,6 +165,22 @@
         <servlet-class>Controller.Common.ChangePassword</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AddProduct</servlet-name>
+        <servlet-class>Controller.Seller.AddProduct</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddProduct</servlet-name>
+        <url-pattern>/seller/addproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditInformationStore</servlet-name>
+        <url-pattern>/seller/InformationStore</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>EditInformationStore</servlet-name>
+        <servlet-class>Controller.Seller.EditInformationStore</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>cartController</servlet-name>
         <servlet-class>Controller.Customer.cartController</servlet-class>
     </servlet>
@@ -152,6 +196,14 @@
         <servlet-name>AdminManageUser</servlet-name>
         <servlet-class>Controller.Admin.AdminManageUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManageOrder</servlet-name>
+        <servlet-class>Controller.Seller.ManageOrder</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ManageOrder</servlet-name>
+        <url-pattern>/seller/manageorder</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>AdminManageFilter</servlet-name>
         <servlet-class>Controller.Admin.AdminManageFilter</servlet-class>

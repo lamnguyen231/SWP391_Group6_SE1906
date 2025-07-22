@@ -57,7 +57,47 @@ public class UserDAO extends dbConfig {
         }
         return false;
     }
+ public void addStore(Store store) {
+String sql = "INSERT INTO Stores\n"
+           + "(store_id, store_name, store_phone, store_address, store_image)\n"
+           + "VALUES (?, ?, ?, ?, ?);";
 
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, store.getUser_id());
+            ps.setString(2, store.getStore_name());
+            ps.setString(3, store.getStore_phone());
+            ps.setString(4, store.getStore_address());
+            ps.setString(5, store.getStore_image());
+            int x = ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+ public Store getStoreByStoreId(int id) {
+        Store st = new Store();
+        String sql = "SELECT store_id, store_name, store_phone, store_address, store_image " +
+             "FROM Stores WHERE store_id = ?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                st.setStore_address(rs.getString("store_address"));
+                st.setStore_phone(rs.getString("store_phone"));
+                st.setStore_image(rs.getString("store_image"));
+                st.setStore_name(rs.getString("store_name"));
+                st.setUser_id(rs.getInt("store_id"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return st;
+    }
     public boolean changePassword(String password, String user_id) {
         String sql = "UPDATE Account SET password = ? WHERE user_id = ?";
         try {
@@ -87,7 +127,25 @@ public class UserDAO extends dbConfig {
         }
         return false;
     }
+public void updateStore(Store store) {
+        String sql = "UPDATE Stores SET store_name = ?, store_phone = ?, store_address = ?, store_image = ? WHERE store_id = ?";
 
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, store.getStore_name());
+            ps.setString(2, store.getStore_phone());
+            ps.setString(3, store.getStore_address());
+            ps.setString(4, store.getStore_image());
+            ps.setInt(5, store.getUser_id());
+            int x = ps.executeUpdate();
+            if (x > 0) {
+                System.out.println("Information store update successfully!");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public boolean checkIsActive(Account account) {
         String sql = "SELECT * FROM Account WHERE username = ? AND password = ? and status = 1";
         try {
