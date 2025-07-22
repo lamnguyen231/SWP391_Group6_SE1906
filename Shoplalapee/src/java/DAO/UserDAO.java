@@ -170,7 +170,7 @@ public class UserDAO extends dbConfig {
     public void updateUser(User user) {
 
         String sql = """                    
-                     UPDATE users
+                     UPDATE [Users]
                      
                      SET fullname = ?, phoneNumber = ?, email = ?, gender = ?, address = ?, DOB = ?, image = ?
                      
@@ -227,8 +227,8 @@ public class UserDAO extends dbConfig {
     }
 
     public void updatePassword(String username, String password) {
-        String sql = "UPDATE account\n"
-                + "   SET password = ?\n"
+        String sql = "UPDATE [dbo].[Account]\n"
+                + "   SET [password] = ?\n"
                 + " WHERE username = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);

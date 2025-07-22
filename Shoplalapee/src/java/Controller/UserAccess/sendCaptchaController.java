@@ -84,7 +84,7 @@ public class sendCaptchaController extends HttpServlet {
         session.setAttribute("OTP", OTP);
         session.setAttribute("email", email);
         System.out.println(sb.toString() + "OTP" + OTP);
-//        loi o day
+        loi o day
     }
     @Override
     public String getServletInfo() {
