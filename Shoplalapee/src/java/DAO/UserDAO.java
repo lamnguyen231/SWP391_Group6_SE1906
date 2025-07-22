@@ -26,9 +26,7 @@ public class UserDAO extends dbConfig {
 
     public void authenticationAccount(String username) {
         try {
-            String sql = "UPDATE [dbo].[Account]\n"
-                    + "   SET [auth] = 1\n"
-                    + " WHERE [Account].username = ?";
+String sql = "UPDATE Account SET auth = 1 WHERE username = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, username);
             int x = ps.executeUpdate();
@@ -59,7 +57,26 @@ public class UserDAO extends dbConfig {
         }
         return false;
     }
-
+    public void addStore(Store store) {
+    String sql = "INSERT INTO [dbo].[Stores]\n"
+                + "           ([store_id]\n"
+                + "           ,[store_name]\n"
+                + "           ,[store_phone]\n"
+                + "           ,[store_address]\n"
+                + "           ,[store_image])\n"
+                + "     VALUES (?, ?,?,?,?)";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, store.getUser_id());
+            ps.setString(2, store.getStore_name());
+            ps.setString(3, store.getStore_phone());
+            ps.setString(4, store.getStore_address());
+            ps.setString(5, store.getStore_image());
+            int x = ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public boolean changePassword(String password, String user_id) {
         String sql = "UPDATE Account SET password = ? WHERE user_id = ?";
         try {

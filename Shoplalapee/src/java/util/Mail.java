@@ -114,7 +114,7 @@ public class Mail {
                 + "        captcha Code\n"
                 + "    </header>\n"
                 + "    <main>\n"
-                + "        <h1>Welcome to Tikilazapee</h1>\n"
+                + "        <h1>Welcome to Shoplalapee</h1>\n"
                 + "        <h4>Use the verification code below to authentication account</h4>\n"
                 + "        <div class=\"content-main\">\n"
                 + message + "\n"
@@ -141,8 +141,8 @@ public class Mail {
     }
 
     public static String sendOTP(String emailTo) {
-        final String emailFrom = "thongbaohethong9@gmail.com";
-        final String password = "bsxu ncki whpp exlt";
+        final String emailFrom = "hoangnam4869@gmail.com";
+        final String password = "fowo spuh bxmh qtln";
         String message = randomOTP2();
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");

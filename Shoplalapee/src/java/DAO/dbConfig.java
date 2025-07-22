@@ -14,8 +14,8 @@ public class dbConfig {
     PreparedStatement ps = null; // Prepare the SQL query
     ResultSet rs = null; // Receive the result
     private String username = "root"; // Change to your MySQL username
-    private String password = "2312004lamvt"; // Change to your MySQL password
-    private String uri = "jdbc:mysql://localhost:3306/shoplalapee?useSSL=false&serverTimezone=UTC";
+    private String password = "123"; // Change to your MySQL password
+    private String uri = "jdbc:mysql://localhost:3306/tikilazapee?useSSL=true&serverTimezone=UTC";
     private String driver = "com.mysql.cj.jdbc.Driver";
 
     public dbConfig() {
