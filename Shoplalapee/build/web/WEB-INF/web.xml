@@ -84,6 +84,22 @@
         <servlet-name>IndexController</servlet-name>
         <servlet-class>Controller.Common.IndexController</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>authenticationController</servlet-name>
+        <url-pattern>/authentication</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>sendCaptchaController</servlet-name>
+        <servlet-class>Controller.UserAccess.sendCaptchaController</servlet-class>
+    </servlet>
+        <servlet-mapping>
+        <servlet-name>sendCaptchaController</servlet-name>
+        <url-pattern>/sendcaptcha</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>authenticationController</servlet-name>
+        <servlet-class>Controller.UserAccess.authenticationController</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>productDetail</servlet-name>
         <servlet-class>Controller.Customer.productDetail</servlet-class>

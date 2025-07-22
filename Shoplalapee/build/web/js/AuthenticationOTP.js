@@ -3,7 +3,7 @@ const btn_cancel = document.querySelector('.cancel-btn'),
         btn_getCode = document.querySelector('.btn-getcode');
 btn_cancel.addEventListener('click', () => {
     $.ajax({
-        url: "/tikilazapee/sendcaptcha",
+        url: "/shoplalapee/sendcaptcha",
         type: 'DELETE',
         success: function (data) {
             location.href = "login";
@@ -13,7 +13,7 @@ btn_cancel.addEventListener('click', () => {
 setTimeout(function () {
     btn_getCode.addEventListener('click', () => {
         $.ajax({
-            url: "/tikilazapee/sendcaptcha",
+            url: "/shoplalapee/sendcaptcha",
             type: 'POST',
             success: function () {
 
@@ -41,7 +41,7 @@ function authenticate(OTP) {
 
         if (count >= 5) {
             $.ajax({
-                url: "/tikilazapee/sendcaptcha",
+                url: "/shoplalapee/sendcaptcha",
                 type: 'DELETE',
                 success: function (data) {
                     location.href = "login";
@@ -50,7 +50,7 @@ function authenticate(OTP) {
         }
     } else {
         $.ajax({
-            url: "/tikilazapee/authentication",
+            url: "/shoplalapee/authentication",
             type: 'POST',
             success: function (data) {
                 location.href = "index";

@@ -26,9 +26,7 @@ public class UserDAO extends dbConfig {
 
     public void authenticationAccount(String username) {
         try {
-            String sql = "UPDATE [dbo].[Account]\n"
-                    + "   SET [auth] = 1\n"
-                    + " WHERE [Account].username = ?";
+   String sql = "UPDATE Account SET auth = 1 WHERE username = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, username);
             int x = ps.executeUpdate();
