@@ -252,7 +252,7 @@ a#scrollUp i{
 	color:#fdb45e;
 }
 
-.search_box input {
+.search_bar search {
   background: #F0F0E9;
   border: medium none;
   color: #B2B2B2;
@@ -1502,8 +1502,6 @@ h2.title {
   outline: medium none;
   padding-left: 0;
 }
-
-
 
 
 

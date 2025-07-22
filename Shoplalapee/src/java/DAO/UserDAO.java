@@ -187,7 +187,7 @@ String sql = "UPDATE Account SET auth = 1 WHERE username = ?";
     public void updateUser(User user) {
 
         String sql = """                    
-                     UPDATE [Users]
+                     UPDATE users
                      
                      SET fullname = ?, phoneNumber = ?, email = ?, gender = ?, address = ?, DOB = ?, image = ?
                      
@@ -244,8 +244,8 @@ String sql = "UPDATE Account SET auth = 1 WHERE username = ?";
     }
 
     public void updatePassword(String username, String password) {
-        String sql = "UPDATE [dbo].[Account]\n"
-                + "   SET [password] = ?\n"
+        String sql = "UPDATE account\n"
+                + "   SET password = ?\n"
                 + " WHERE username = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
