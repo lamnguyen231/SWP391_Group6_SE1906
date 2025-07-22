@@ -61,7 +61,7 @@
                     <div class="row">
                         <div class="col-sm-5">
                             <div class="logo pull-left">
-                                <a href="<c:url value="home"/>"><img src="${pageContext.request.contextPath}/images/home/logo2.png" style="height: 110px; width: auto;" alt="" /></a> 
+                                <a href="<c:url value="/home"/>"><img src="${pageContext.request.contextPath}/images/home/logo2.png" style="height: 110px; width: auto;" alt="" /></a> 
                             </div>
                             <div class="btn-group pull-right">
                                 <div class="btn-group">
@@ -127,11 +127,9 @@
 
                         </div>
                         <div class="col-sm-3">
-                            <form class="search-bar" method="get" action="searchpage?index=1">
-                                <input name="index" value="1" type="hidden">
-                                <input type="search" placeholder="Search for items" name="txt" value="${txt}" style="color: black">
-                                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                            </form>
+                            <div class="search_box pull-right">
+                                <input type="text" placeholder="Search"/>
+                            </div>
                         </div>
                     </div>
                 </div>

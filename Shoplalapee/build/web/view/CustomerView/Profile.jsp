@@ -31,7 +31,7 @@
                 <div class="col-sm-4">
                     <div class="panel panel-default">
                         <div class="panel-body text-center">
-                            <img src="${s_u_tikilazapee.image}" alt="Profile" class="img-circle" height="100px">
+                            <img src="${s_u_tikilazapee.image}" alt="Profile" class="img-circle">
                             <h3>${s_u_tikilazapee.fullname}</h3>
                         </div>
                     </div>
