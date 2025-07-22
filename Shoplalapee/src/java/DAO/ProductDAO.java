@@ -543,7 +543,7 @@ public class ProductDAO extends dbConfig {
         List<Product> listProduct = new ArrayList();
         try {
             String sql = "select *\n"
-                    + "from [Products]\n"
+                    + "from products\n"
                     + "ORDER BY product_id\n"
                     + "Offset ? rows\n"
                     + "FETCH NEXT 12 Rows only";
@@ -1509,9 +1509,9 @@ public class ProductDAO extends dbConfig {
                                                               ROW_NUMBER() OVER (PARTITION BY p.product_id ORDER BY i.product_id) AS rn
                                           
                                                          FROM 
-                                                                 [Products] p
+                                                                 products p
                                                               JOIN
-                                                              [ImageProducts] i ON p.product_id = i.product_id
+                                                              ImageProducts i ON p.product_id = i.product_id
                                           Join
                                           ProductTypeColor pt on p.product_id = pt.product_id
                                          

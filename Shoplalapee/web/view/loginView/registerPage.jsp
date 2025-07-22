@@ -11,12 +11,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
         <c:url value="/js/jquery-3.7.1.min.js" var="libJquery"/>
         <c:url value="/js/registerJS.js" var="register"/>
         <link rel="stylesheet" href="${registerPage}"/>
         <title>Register</title>
-
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,88 +37,85 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+        <%@include file="../../Template/navbar2.jsp" %>
     </head><!--/head-->
 
     <body>
-        <%@include file="../../Template/navbar2.jsp" %>
-
-        <section id="form"><!--form-->
-            <div class="container">
-                <div class="col-sm-8">
-                    <div class="signup-form"><!--sign up form-->
-                        <h2>New User Signup!</h2>
-                        <form action="register" method="post" autocomplete="off">
-                            <div class="row">
-                                <p class="notice-p">${notice}</p>
-                                <div class="col-sm-4">
-                                    <div class="input-box">
-                                        <input type="text" name="fullname" placeholder="Full name" class="name" required>
-                                        <input type="text" name="address" placeholder="Address" class="address2" required>
-                                    </div>
-                                    <div class="">
-                                        <label style="font-weight: 530" >Day Of Birth</label>
-                                        <br>
-                                        <select name="day" class="col-md-3" style="width: 30%; margin-right: 5%">
-                                            <c:forEach items="${listDay}" var="i">
-                                                <option value="${i}">${i}</option>
-                                            </c:forEach>
-                                        </select>
-                                        <select name="month" class="col-md-3" style="width: 30%; margin-right: 5%">
-                                            <c:forEach items="${listMonth}" var="i">
-                                                <option value="${i}">${i}</option>
-                                            </c:forEach>
-                                        </select>
-                                        <select name="year" class="col-md-3" style="width: 30%">
-                                            <c:forEach items="${listYears}" var="i">
-                                                <option value="${i}">${i}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
+        <div class="container">
+            <div class="col-sm-8">
+                <div class="signup-form"><!--sign up form-->
+                    <h2>New User Signup!</h2>
+                    <form action="register" method="post" autocomplete="off">
+                        <div class="row">
+                            <p class="notice-p">${notice}</p>
+                            <div class="col-sm-4">
+                                <div class="input-box">
+                                    <input type="text" name="fullname" placeholder="Full name" class="name" required>
+                                    <input type="text" name="address" placeholder="Address" class="address2" required>
                                 </div>
-                                <div class="col-sm-4">
-                                    <div class="input-box">
-                                        <input class="email" type="text" name="email" placeholder="Email" required autocomplete="off">
-                                        <input class="password" type="password" name="password" placeholder="New password" required>
-                                    </div>
-                                    <div class="gender-details">
-                                        <label for="gender-select" class="gender-title">Gender</label>
-                                        <select name="gender" id="gender-select" required>
-                                            <option value="1" selected>Male</option>
-                                            <option value="0">Female</option>
-                                            <option value="2">Prefer not to say</option>
-                                        </select>
-                                    </div>
-
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="input-box">
-                                        <input type="text" name="username" placeholder="Username" required>
-                                        <input class="confirm-password" type="password" name="confirm-password" placeholder="Confirm password" required>
-                                    </div>
-                                    <div class="gender-details">
-                                        <label for="role-select" class="gender-title">Role</label>
-                                        <select name="role" id="role-select" required>
-                                            <option value="3" selected>Customer</option>
-                                            <option value="2">Seller</option>
-                                        </select>
-                                    </div>
+                                <div class="">
+                                    <label style="font-weight: 530" >Day Of Birth</label>
+                                    <br>
+                                    <select name="day" class="col-md-3" style="width: 30%; margin-right: 5%">
+                                        <c:forEach items="${listDay}" var="i">
+                                            <option value="${i}">${i}</option>
+                                        </c:forEach>
+                                    </select>
+                                    <select name="month" class="col-md-3" style="width: 30%; margin-right: 5%">
+                                        <c:forEach items="${listMonth}" var="i">
+                                            <option value="${i}">${i}</option>
+                                        </c:forEach>
+                                    </select>
+                                    <select name="year" class="col-md-3" style="width: 30%">
+                                        <c:forEach items="${listYears}" var="i">
+                                            <option value="${i}">${i}</option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                             </div>
-                            <small style="font-style: italic; font-size: 10px">People who use our service may have uploaded your contact information to Shoplalapee. <br>
-                                By clicking Register, you agree to our Terms, Privacy Policy and Cookies Policy. You may receive Email notifications from us and can opt out at any time</small>
-                            <div class="button">
-                                <input type="button" value="Register" id="register-button" class="btn btn-default">
-                                <a href="login" style="color: #495057;
-                                   text-decoration: underline;">
-                                    Already have a account?
-                                </a>
-                                <input type="hidden" name="listMonths" value="${requestScope.listMonth}" />
+                            <div class="col-sm-4">
+                                <div class="input-box">
+                                    <input class="email" type="text" name="email" placeholder="Email" required autocomplete="off">
+                                    <input class="password" type="password" name="password" placeholder="New password" required>
+                                </div>
+                                <div class="gender-details">
+                                    <label for="gender-select" class="gender-title">Gender</label>
+                                    <select name="gender" id="gender-select" required>
+                                        <option value="1" selected>Male</option>
+                                        <option value="0">Female</option>
+                                        <option value="2">Prefer not to say</option>
+                                    </select>
+                                </div>
+
                             </div>
-                        </form>
-                    </div><!--/sign up form-->
-                </div>
+                            <div class="col-sm-4">
+                                <div class="input-box">
+                                    <input type="text" name="username" placeholder="Username" required>
+                                    <input class="confirm-password" type="password" name="confirm-password" placeholder="Confirm password" required>
+                                </div>
+                                <div class="gender-details">
+                                    <label for="role-select" class="gender-title">Role</label>
+                                    <select name="role" id="role-select" required>
+                                        <option value="3" selected>Customer</option>
+                                        <option value="2">Seller</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <small style="font-style: italic; font-size: 10px">People who use our service may have uploaded your contact information to Shoplalapee. <br>
+                            By clicking Register, you agree to our Terms, Privacy Policy and Cookies Policy. You may receive Email notifications from us and can opt out at any time</small>
+                        <div class="button">
+                            <input type="button" value="Register" id="register-button" class="btn btn-default">
+                            <a href="login" style="color: #495057;
+                               text-decoration: underline;">
+                                Already have a account?
+                            </a>
+                            <input type="hidden" name="listMonths" value="${requestScope.listMonth}" />
+                        </div>
+                    </form>
+                </div><!--/sign up form-->
             </div>
-        </section><!--/form-->
+        </div>
 
         <footer id="footer"><!--Footer-->
             <div class="footer-top">
